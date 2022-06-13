@@ -1,11 +1,13 @@
 //@ts-check
-import NavBar from "./Components/NavBar";
+import NavBar from "./Components/Navbar/NavBar";
+import ItemListContainer from "./Components/ItemListContainer"
 
 
 function App() {
   return (
     <div>
       <NavBar />
+      <ItemListContainer greeting={"¡Bienvenidos a Oropel!"}/>
     </div>
   );
 }
