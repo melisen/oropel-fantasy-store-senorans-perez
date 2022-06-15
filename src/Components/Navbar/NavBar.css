@@ -1,4 +1,23 @@
+.divBrand{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right:15px;
+}
+.logoDragonDorado{
+    margin-right:10px;
+}
+.typographyBrand{
+    font-family: 'Modern Antiqua', sans-serif;
+    color: #ece6c3;
+    margin-left:10px;
+}
+.fantasyStore{
+    color:#eafc9bd7;
+}
+
 .cartWidget{
     display: flex;
     flex-direction:row;
+    color:#ece6c3;
 }

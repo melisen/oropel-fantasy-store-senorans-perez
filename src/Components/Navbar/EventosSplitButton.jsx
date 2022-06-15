@@ -9,12 +9,12 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
-const options = ['Torneos MTG', 'Ciclo de Lectura Fantástica', 'Cenas con Reserva', 'Eventos Privados'];
+const options = ['Eventos', 'Torneos MTG', 'Ciclo de Lectura Fantástica', 'Cenas con Reserva', 'Eventos Privados'];
 
 export default function EventosSplitButton() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const handleClick = () => {
     console.info(`You clicked ${options[selectedIndex]}`);

@@ -9,12 +9,12 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
-const options = ['Cartas MTG', 'Arte y Libros', 'Tazas, Vasos, Chops', 'Indumentaria'];
+const options = ['Productos', 'Cartas MTG', 'Arte y Libros', 'Tazas, Vasos, Chops', 'Indumentaria'];
 
 export default function ProductosSplitButton() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const handleClick = () => {
     console.info(`You clicked ${options[selectedIndex]}`);
