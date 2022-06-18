@@ -8,17 +8,19 @@ const themeOropel = createTheme({
   palette:{
     mode: 'dark',
     primary:{
-      main: '#4b3b42'
+      main: '#4b3b42',
+      light:'#9c8481'
     },
-    /*
-    text:{
-      primary:'#e6b95e'
+    secondary:{
+      main: '#eafc9bd7',
     }
-    */
+    
   },
   typography:{
     fontFamily: 'Metamorphous',
-    
+    button:{
+      fontFamily: 'Modern Antiqua'
+    }
   }
 
 })
@@ -29,7 +31,7 @@ function App() {
     <ThemeProvider theme={themeOropel}>
     <div>
       <NavBar  />
-      <ItemListContainer greeting={"¡Bienvenidos a Oropel!"}/>
+      <ItemListContainer greeting={"¡Bienvenidos a Oropel!"}   />
     </div>
     </ThemeProvider>
   );

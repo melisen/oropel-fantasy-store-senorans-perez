@@ -1,0 +1,11 @@
+.contadorCarrito{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contenedorCentrarBtn{
+    display:flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
