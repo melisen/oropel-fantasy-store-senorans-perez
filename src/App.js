@@ -1,6 +1,6 @@
 //@ts-check
 import NavBar from "./Components/Navbar/NavBar";
-import ItemListContainer from "./Components/ItemListContainer"
+import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
@@ -18,8 +18,15 @@ const themeOropel = createTheme({
   },
   typography:{
     fontFamily: 'Metamorphous',
+    h5:{
+      fontSize:"1.2rem",
+      lineHeight:1.8
+    },
     button:{
       fontFamily: 'Modern Antiqua'
+    },
+    body1:{
+      fontFamily: 'Joan'
     }
   }
 

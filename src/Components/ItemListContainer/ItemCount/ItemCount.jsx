@@ -54,7 +54,7 @@ export default function ItemCount( {stock, initial, onAdd}) {
     </CardContent>
     <CardActions style={{display: 'flex',justifyContent: 'center',alignItems: 'center',}} >
       <div className='contenedorCentrarBtn'>
-        <Button color='secondary' onClick={ ()=> {onAdd(cantItems, stockDisp, cantItems)}} >Agregar al carrito</Button>
+        <Button color='secondary' onClick={ ()=> {onAdd(cantItems, stockDisp)}} >Agregar al carrito</Button>
         </div>
     </CardActions>
   </React.Fragment>

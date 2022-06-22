@@ -1,0 +1,25 @@
+.ItemList{
+    display:flex;
+    flex-wrap: wrap;
+}
+.cardArticulo{
+    margin: 10px 15px;
+}
+.contenedorImagen{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.cardImg{
+    max-height: 200px;
+}
+.descriptionArticulo{
+    color: #eafc9bd7;
+    background-color: #283322;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.cardActionsArticulo{
+    margin-left:1rem;
+}
