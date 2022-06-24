@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "idCategory": "libros",
         "title": "El nombre del viento",
         "price": 6249,
         "description": "Crónicas del asesino de reyes libro I. Autor: Patrick Rothfuss. Año de publicación: 2007. Título original: The Name of the Wind. The Kingkiller Chronicle: Day One ",
@@ -10,6 +11,7 @@
     },
     {
         "id": 2,
+        "idCategory": "libros",
         "title": "El Hobbit",
         "price": 2770,
         "description": "Autor: John Ronald Reuel Tolkien. Año de publicación: 1937. Título original: The Hobbit, or There and Back Again ",
@@ -19,6 +21,7 @@
     },
     {
         "id": 3,
+        "idCategory": "libros",
         "title": "Harry Potter y la Piedra Filosofal",
         "price": 3449,
         "description": "Autor: J. K. Rowling. Año de publicación: 1997. Título original: Harry Potter and the Philosopher's Stone ",
@@ -28,6 +31,7 @@
     },    
     {
         "id": 4,
+        "idCategory": "libros",
         "title": "Alicia en el País de las Maravillas",
         "price": 2235,
         "description": "Autor: Lewis Carroll. Año de publicación: 1867. Título original: Alices's Adventures in Wonderland",
@@ -36,6 +40,7 @@
     },    
     {
         "id": 5,
+        "idCategory": "libros",
         "title": "El camino de los reyes",
         "price": 5499,
         "description": " Saga el Archivo de las Tormentas libro I. Autor: Brandon Sanderson. Año de publicación: 2010. Título original: The Way of Kings ",
@@ -45,6 +50,7 @@
     },    
     {
         "id": 6,
+        "idCategory": "libros",
         "title": "El Ojo del Mundo",
         "price": 3370,
         "description": "La Rueda del Tiempo libro I. Autor: Robert Jordan. Año de publicación: 1990. Título original: The Eye of the World ",
@@ -54,6 +60,7 @@
     },    
     {
         "id": 7,
+        "idCategory": "libros",
         "title": "El Dragón Renacido",
         "price": 3330,
         "description": "La Rueda del Tiempo libro III. Autor: Robert Jordan. Año de publicación: 1991. Título original: The Dragon Reborn)",
@@ -63,6 +70,7 @@
     },    
     {
         "id": 8,
+        "idCategory": "libros",
         "title": "El Imperio Final",
         "price": 4199,
         "description": "Trilogía de los Nacidos de la Bruma libro I. Autor: Brandon Sanderson. Año de publicación: 2006. Título original: Mistborn: The Final Empire ",
@@ -72,6 +80,7 @@
     },    
     {
         "id": 9,
+        "idCategory": "libros",
         "title": "Harry Potter y el Cáliz de Fuego",
         "price": 5489,
         "description": "Autor: J. K. Rowling. Año de publicación: 2000. Título original: Harry Potter and the Goblet of Fire ",
@@ -81,6 +90,7 @@
     },    
     {
         "id": 10,
+        "idCategory": "libros",
         "title": "Sombra y Hueso",
         "price": 5667,
         "description": "Trilogía de Grisha libro I. Autor: Leigh Bardugo. Año de publicación: 2012. Título original: Shadow and Bone ",
@@ -90,6 +100,7 @@
     },
     {
         "id": 11,
+        "idCategory": "libros",
         "title": "Harry Potter y la Cámara Secreta",
         "price": 4599,
         "description": "Autor: J. K. Rowling. Año de publicación: 1998. Título original: Harry Potter and the Chamber of Secrets ",
@@ -99,6 +110,7 @@
     },
     {
         "id": 12,
+        "idCategory": "libros",
         "title": "Tormenta de Espadas",
         "price": 4179,
         "description": "Canción de Hielo y Fuego libro III. Autor: George R. R. Martin. Año de publicación: 2000. Título original: A Storm of Swords ",
@@ -108,6 +120,7 @@
     },
     {
         "id": 13,
+        "idCategory": "libros",
         "title": "El Temor de un Hombre Sabio",
         "price": 3389,
         "description": "Crónicas del asesino de reyes libro II. Autor: Patrick Rothfuss. Año de publicación: 2011. Título original: The Wise Man's Fear. The Kingkiller Chronicle: Day Two ",
@@ -117,6 +130,7 @@
     },
     {
         "id": 14,
+        "idCategory": "libros",
         "title": "El Silmarillion",
         "price": 3090,
         "description": "Autor:John Ronald Reuel Tolkien. Año de publicación: 1977. Título original: The Silmarillion ",
@@ -126,6 +140,7 @@
     },
     {
         "id": 15,
+        "idCategory": "libros",
         "title": "el Ascenso de la Sombra",
         "price": 6424,
         "description": "La Rueda del Tiempo libro IV. Autor: Robert Jordan. Año de publicación: 1992. Título original:The Shadow Rising",
