@@ -49,7 +49,7 @@ function App() {
         <Route path="/item/:idItem" element={<ItemDetailContainer />} />
       </Routes>
       
-      <ItemDetailContainer />
+
     </div>
     </ThemeProvider>
     </BrowserRouter>

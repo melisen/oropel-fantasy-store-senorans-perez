@@ -8,14 +8,13 @@ export default function ItemDetailContainer() {
     const [error, setError] = useState(false);
     const [itemProducto, setItemProducto] = useState({});
 
-    //let {itemElegidoID}= useParams() ;
-    let itemElegidoID= 10;
+    let {idItem}= useParams() ;
 
     useEffect( ()=>{
         let promesaDetail = new Promise((resolve, rej) =>{
                 setTimeout( ()=>{
                         
-                            fetch("./listado-productos.json")
+                            fetch("http://localhost:3000/listado-productos.json")
                             .then((response)=> response.json())
                             .then((data)=>{
                                 resolve(data);
@@ -27,7 +26,7 @@ export default function ItemDetailContainer() {
         promesaDetail
         .then((resultado)=> {
             console.log(resultado)
-                let aux = resultado.find((elemento) => elemento.id == itemElegidoID)
+                let aux = resultado.find((elemento) => elemento.id == idItem)
                 setItemProducto(aux);
             console.log(itemProducto);
         })
@@ -38,7 +37,7 @@ export default function ItemDetailContainer() {
             setLoading(false);
         })
 
-    }, [itemElegidoID])
+    }, [idItem])
 
     return (
 
