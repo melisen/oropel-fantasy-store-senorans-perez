@@ -2,6 +2,8 @@
 import NavBar from "./Components/Navbar/NavBar";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer.jsx"
 
 
 const themeOropel = createTheme({
@@ -12,7 +14,7 @@ const themeOropel = createTheme({
       light:'#9c8481'
     },
     secondary:{
-      main: '#eafc9bd7',
+      main: '#e0f193d7'
     }
     
   },
@@ -34,13 +36,23 @@ const themeOropel = createTheme({
 
 
 function App() {
+
+  //SACAR ITEMDETAILCONTAINER SUELTO
   return (
+    <BrowserRouter>
     <ThemeProvider theme={themeOropel}>
     <div>
-      <NavBar  />
-      <ItemListContainer greeting={"¡Bienvenidos a Oropel!"}   />
+    <NavBar  />
+      <Routes>
+        <Route path="/" element={<ItemListContainer greeting={"¡Bienvenidos a Oropel!"} />} />
+        <Route path="/category/:idCategory" element={<ItemListContainer greeting={"¡Bienvenidos a Oropel!"}/>} />
+        <Route path="/item/:idItem" element={<ItemDetailContainer />} />
+      </Routes>
+      
+      <ItemDetailContainer />
     </div>
     </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

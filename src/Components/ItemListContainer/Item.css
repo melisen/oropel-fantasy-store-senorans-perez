@@ -14,12 +14,9 @@
     max-height: 200px;
 }
 .descriptionArticulo{
-    color: #eafc9bd7;
+    color: #ece6c3;
+    ;
     background-color: #283322;
     padding: 8px;
     border-radius: 4px;
-}
-
-.cardActionsArticulo{
-    margin-left:1rem;
 }

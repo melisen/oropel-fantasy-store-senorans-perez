@@ -2,7 +2,7 @@
 import { Typography } from '@mui/material'
 import React from 'react'
 import ItemList from './ItemList'
-import ItemCount from './ItemCount/ItemCount'
+
 import { useEffect, useState } from 'react';
 
 
@@ -43,11 +43,7 @@ export default function ItemListContainer({greeting}) {
        })
     }, []);
     
-    function onAdd(items, cantidadStock){
-      if((items>0)&&(cantidadStock>0)){ 
-        alert("¡Agregaste "+ JSON.stringify(items)+ " artículos a tu carrito!")
-      }
-    }
+    
 
   return (
     <div>
@@ -61,7 +57,7 @@ export default function ItemListContainer({greeting}) {
       {productosLista && <ItemList productosLista={productosLista} />}
       </>
 
-      <ItemCount stock= {5} initial={1}  onAdd= {onAdd} />
+      
       
     </div>
   )

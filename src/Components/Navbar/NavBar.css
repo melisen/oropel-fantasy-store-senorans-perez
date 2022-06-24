@@ -1,3 +1,4 @@
+
 .divBrand{
     display: flex;
     flex-direction: row;
@@ -13,7 +14,7 @@
     margin-left:10px;
 }
 .fantasyStore{
-    color:#eafc9bd7;
+    color:#e0f193d7;
 }
 
 .cartWidget{

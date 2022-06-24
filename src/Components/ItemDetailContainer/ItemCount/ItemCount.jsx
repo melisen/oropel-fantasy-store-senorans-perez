@@ -7,8 +7,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
-import "./ItemCount.css"
+import "./ItemCount.css";
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { useState } from 'react';
@@ -29,7 +28,7 @@ export default function ItemCount( {stock, initial, onAdd}) {
   }
 
   function remover(){
-    if (cantItems>0){
+    if (cantItems>1){
     setCantItems(cantItems-1);
     setStockDisp(stockDisp+1)
     }
