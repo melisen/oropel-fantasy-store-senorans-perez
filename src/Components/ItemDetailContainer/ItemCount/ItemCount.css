@@ -3,9 +3,11 @@
     flex-direction: row;
     justify-content: space-between;
 }
+.contador{
+color:#9c8481;
+}
 .contenedorCentrarBtn{
     display:flex;
     flex-direction: column;
-
     justify-content: center;
 }

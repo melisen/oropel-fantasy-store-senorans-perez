@@ -91,16 +91,6 @@
     {
         "id": 10,
         "idCategory": "libros",
-        "title": "Sombra y Hueso",
-        "price": 5667,
-        "description": "Trilogía de Grisha libro I. Autor: Leigh Bardugo. Año de publicación: 2012. Título original: Shadow and Bone ",
-        "pictureURL": "https://www.libreriarayuela.net/imagenes/9788418/978841800249.JPG",
-        "stock": 10
-
-    },
-    {
-        "id": 11,
-        "idCategory": "libros",
         "title": "Harry Potter y la Cámara Secreta",
         "price": 4599,
         "description": "Autor: J. K. Rowling. Año de publicación: 1998. Título original: Harry Potter and the Chamber of Secrets ",
@@ -109,7 +99,7 @@
 
     },
     {
-        "id": 12,
+        "id": 11,
         "idCategory": "libros",
         "title": "Tormenta de Espadas",
         "price": 4179,
@@ -119,7 +109,7 @@
 
     },
     {
-        "id": 13,
+        "id": 12,
         "idCategory": "libros",
         "title": "El Temor de un Hombre Sabio",
         "price": 3389,
@@ -129,7 +119,7 @@
 
     },
     {
-        "id": 14,
+        "id": 13,
         "idCategory": "libros",
         "title": "El Silmarillion",
         "price": 3090,
@@ -139,12 +129,112 @@
 
     },
     {
-        "id": 15,
+        "id": 14,
         "idCategory": "libros",
         "title": "el Ascenso de la Sombra",
         "price": 6424,
         "description": "La Rueda del Tiempo libro IV. Autor: Robert Jordan. Año de publicación: 1992. Título original:The Shadow Rising",
         "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_968887-MLA47201646314_082021-O.jpg",
+        "stock": 10
+
+    },
+    {
+        "id": 15,
+        "idCategory": "chops",
+        "title": "Chop con dibujo",
+        "price": 1800,
+        "description": "Chop de cerámica estilo alemán, con dibujo. 350 cc de capacidad.",
+        "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_960203-MLA49261522005_032022-O.webp",
+        "stock": 10
+
+    },
+    {
+        "id": 16,
+        "idCategory": "chops",
+        "title": "Chop de madera",
+        "price": 1750,
+        "description": "Chop de madera sin tapa. 400 cc de capacidad.",
+        "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_847718-MLM47589087441_092021-W.jpg",
+        "stock": 10
+
+    },
+    {
+        "id": 17,
+        "idCategory": "chops",
+        "title": "Chop de madera con detalle en asa",
+        "price": 8100,
+        "description": "Chop de madera sin tapa, con interior de acero inoxidable y detalle en asa imitación hierro.  300 cc de capacidad.",
+        "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_931218-MLC50192839508_062022-V.jpg",
+        "stock": 10
+
+    },
+    {
+        "id": 18,
+        "idCategory": "chops",
+        "title": "Chop de cerámica estilo alemán tradicional",
+        "price": 8100,
+        "description": "Chop de cerámica con tapa, con inscripción y detalles de textura en cuerpo y asa.  320 cc de capacidad.",
+        "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_646390-MLA47091233799_082021-W.jpg",
+        "stock": 10
+
+    },
+    {
+        "id": 19,
+        "idCategory": "indumentaria",
+        "title": "Remera Goth Metal",
+        "price": 3800,
+        "description": "Talles desde XS hasta XXL",
+        "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_713851-MLA48794659595_012022-O.webp",
+        "stock": 10
+
+    },
+    {
+        "id": 20,
+        "idCategory": "indumentaria",
+        "title": "Remera Templario",
+        "price": 3800,
+        "description": "Talles desde XS hasta XXL",
+        "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_764032-MLA31128500352_062019-O.webp",
+        "stock": 10
+
+    },
+    {
+        "id": 21,
+        "idCategory": "indumentaria",
+        "title": "Remera Armadura inspiración LOTR",
+        "price": 3800,
+        "description": "Talles desde XS hasta XXL",
+        "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_926215-MLA31063366735_062019-O.webp",
+        "stock": 10
+
+    },
+    {
+        "id": 22,
+        "idCategory": "indumentaria",
+        "title": "Remera Armadura Medieval",
+        "price": 3800,
+        "description": "Talles desde XS hasta XXL",
+        "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_819059-MLA31094238717_062019-O.webp",
+        "stock": 10
+
+    },
+    {
+        "id": 23,
+        "idCategory": "indumentaria",
+        "title": "Gorro tejido estilo yelmo",
+        "price": 3800,
+        "description": "Por encargo, todas las medidas, disponible 15 días después de la compra.",
+        "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_638005-MLA31097706207_062019-O.webp",
+        "stock": 10
+
+    },
+    {
+        "id": 24,
+        "idCategory": "indumentaria",
+        "title": "Vestido estilo medieval inglés",
+        "price": 4500,
+        "description": "Talles del XS al XXL. Escote bote, mangas campana, detalles en el escote, cintura y mangas. Color: verde.",
+        "pictureURL": "https://http2.mlstatic.com/D_NQ_NP_627424-CBT48796010464_012022-W.jpg",
         "stock": 10
 
     }

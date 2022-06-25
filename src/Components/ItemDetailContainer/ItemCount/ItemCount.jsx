@@ -15,7 +15,7 @@ import { useState } from 'react';
 
 
 
-export default function ItemCount( {stock, initial, onAdd}) {
+export default function ItemCount( {stock, initial, onAdd, articulo}) {
 
   const [stockDisp, setStockDisp] = useState(stock);
   const [cantItems, setCantItems] = useState(initial);
@@ -41,12 +41,12 @@ export default function ItemCount( {stock, initial, onAdd}) {
         <React.Fragment>
     <CardContent>
       <Typography sx={{ fontSize: 14 }} color="text.secondary" style={{textAlign:'center'}} gutterBottom>
-        Artículo
+        Artículo {articulo.id}
       </Typography>
       
       <div className="contadorCarrito">
         <Button   onClick={ ()=> {agregar()} }><AddIcon color='secondary' /></Button>
-        <p>{cantItems} </p>
+        <p className='contador' >{cantItems} </p>
         <Button  onClick= { ()=> {remover()} }><RemoveIcon color='secondary' /></Button>
       </div>
 

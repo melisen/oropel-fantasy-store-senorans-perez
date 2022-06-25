@@ -14,9 +14,12 @@ const themeOropel = createTheme({
       light:'#9c8481'
     },
     secondary:{
-      main: '#e0f193d7'
-    }
-    
+      main: '#ece6c3'
+    },
+    info:{
+      main:'#829e04d7',
+      light:'#e0f193d7'
+    },
   },
   typography:{
     fontFamily: 'Metamorphous',
