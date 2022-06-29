@@ -10,22 +10,28 @@ const themeOropel = createTheme({
   palette:{
     mode: 'dark',
     primary:{
-      main: '#4b3b42',
-      light:'#9c8481'
+      main: '#698003d7',
+      light:'#e0f193d7'
     },
     secondary:{
       main: '#ece6c3'
     },
-    info:{
-      main:'#829e04d7',
-      light:'#e0f193d7'
-    },
+    action:{
+      active:'#ece6c3',
+      hover:'#e0f193d7'
+    }
   },
   typography:{
     fontFamily: 'Metamorphous',
+    h3:{
+      fontSize:"2rem",
+      lineHeight:1.8
+    },
     h5:{
       fontSize:"1.2rem",
-      lineHeight:1.8
+      lineHeight:1.8,
+      marginTop:8,
+      marginBottom:8
     },
     button:{
       fontFamily: 'Modern Antiqua'

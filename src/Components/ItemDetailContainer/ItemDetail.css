@@ -4,9 +4,14 @@
     flex-direction: row;
     justify-content: center;
 }
-.divImagenDetail{
+.columnaImagen{
     display:flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
-
+    color:#698003d7;
+}
+.imagenDetail{
+    height: 26rem;
+    margin:1.5rem;
 }

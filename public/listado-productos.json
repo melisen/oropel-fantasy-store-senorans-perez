@@ -1,27 +1,27 @@
 [
     {
         "id": 1,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "El nombre del viento",
         "price": 6249,
         "description": "Crónicas del asesino de reyes libro I. Autor: Patrick Rothfuss. Año de publicación: 2007. Título original: The Name of the Wind. The Kingkiller Chronicle: Day One ",
-        "pictureURL": "https://quelibroleo.com/images/libros/libro_1321929304.jpg",
+        "pictureURL": "https://www.isliada.org/static/images/2018/07/el-nombre-del-viento.jpg",
         "stock": 10
 
     },
     {
         "id": 2,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "El Hobbit",
         "price": 2770,
         "description": "Autor: John Ronald Reuel Tolkien. Año de publicación: 1937. Título original: The Hobbit, or There and Back Again ",
-        "pictureURL": "https://www.librosdemario.com/covers/03/70/96/cover.jpg",
+        "pictureURL": "https://www.Librosdemario.com/covers/03/70/96/cover.jpg",
         "stock": 10
 
     },
     {
         "id": 3,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "Harry Potter y la Piedra Filosofal",
         "price": 3449,
         "description": "Autor: J. K. Rowling. Año de publicación: 1997. Título original: Harry Potter and the Philosopher's Stone ",
@@ -31,7 +31,7 @@
     },    
     {
         "id": 4,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "Alicia en el País de las Maravillas",
         "price": 2235,
         "description": "Autor: Lewis Carroll. Año de publicación: 1867. Título original: Alices's Adventures in Wonderland",
@@ -40,7 +40,7 @@
     },    
     {
         "id": 5,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "El camino de los reyes",
         "price": 5499,
         "description": " Saga el Archivo de las Tormentas libro I. Autor: Brandon Sanderson. Año de publicación: 2010. Título original: The Way of Kings ",
@@ -50,7 +50,7 @@
     },    
     {
         "id": 6,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "El Ojo del Mundo",
         "price": 3370,
         "description": "La Rueda del Tiempo libro I. Autor: Robert Jordan. Año de publicación: 1990. Título original: The Eye of the World ",
@@ -60,7 +60,7 @@
     },    
     {
         "id": 7,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "El Dragón Renacido",
         "price": 3330,
         "description": "La Rueda del Tiempo libro III. Autor: Robert Jordan. Año de publicación: 1991. Título original: The Dragon Reborn)",
@@ -70,7 +70,7 @@
     },    
     {
         "id": 8,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "El Imperio Final",
         "price": 4199,
         "description": "Trilogía de los Nacidos de la Bruma libro I. Autor: Brandon Sanderson. Año de publicación: 2006. Título original: Mistborn: The Final Empire ",
@@ -80,7 +80,7 @@
     },    
     {
         "id": 9,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "Harry Potter y el Cáliz de Fuego",
         "price": 5489,
         "description": "Autor: J. K. Rowling. Año de publicación: 2000. Título original: Harry Potter and the Goblet of Fire ",
@@ -90,7 +90,7 @@
     },    
     {
         "id": 10,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "Harry Potter y la Cámara Secreta",
         "price": 4599,
         "description": "Autor: J. K. Rowling. Año de publicación: 1998. Título original: Harry Potter and the Chamber of Secrets ",
@@ -100,7 +100,7 @@
     },
     {
         "id": 11,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "Tormenta de Espadas",
         "price": 4179,
         "description": "Canción de Hielo y Fuego libro III. Autor: George R. R. Martin. Año de publicación: 2000. Título original: A Storm of Swords ",
@@ -110,7 +110,7 @@
     },
     {
         "id": 12,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "El Temor de un Hombre Sabio",
         "price": 3389,
         "description": "Crónicas del asesino de reyes libro II. Autor: Patrick Rothfuss. Año de publicación: 2011. Título original: The Wise Man's Fear. The Kingkiller Chronicle: Day Two ",
@@ -120,7 +120,7 @@
     },
     {
         "id": 13,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "El Silmarillion",
         "price": 3090,
         "description": "Autor:John Ronald Reuel Tolkien. Año de publicación: 1977. Título original: The Silmarillion ",
@@ -130,7 +130,7 @@
     },
     {
         "id": 14,
-        "idCategory": "libros",
+        "category": "Libros",
         "title": "el Ascenso de la Sombra",
         "price": 6424,
         "description": "La Rueda del Tiempo libro IV. Autor: Robert Jordan. Año de publicación: 1992. Título original:The Shadow Rising",
@@ -140,7 +140,7 @@
     },
     {
         "id": 15,
-        "idCategory": "chops",
+        "category": "Chops",
         "title": "Chop con dibujo",
         "price": 1800,
         "description": "Chop de cerámica estilo alemán, con dibujo. 350 cc de capacidad.",
@@ -150,7 +150,7 @@
     },
     {
         "id": 16,
-        "idCategory": "chops",
+        "category": "Chops",
         "title": "Chop de madera",
         "price": 1750,
         "description": "Chop de madera sin tapa. 400 cc de capacidad.",
@@ -160,7 +160,7 @@
     },
     {
         "id": 17,
-        "idCategory": "chops",
+        "category": "Chops",
         "title": "Chop de madera con detalle en asa",
         "price": 8100,
         "description": "Chop de madera sin tapa, con interior de acero inoxidable y detalle en asa imitación hierro.  300 cc de capacidad.",
@@ -170,7 +170,7 @@
     },
     {
         "id": 18,
-        "idCategory": "chops",
+        "category": "Chops",
         "title": "Chop de cerámica estilo alemán tradicional",
         "price": 8100,
         "description": "Chop de cerámica con tapa, con inscripción y detalles de textura en cuerpo y asa.  320 cc de capacidad.",
@@ -180,7 +180,7 @@
     },
     {
         "id": 19,
-        "idCategory": "indumentaria",
+        "category": "Indumentaria",
         "title": "Remera Goth Metal",
         "price": 3800,
         "description": "Talles desde XS hasta XXL",
@@ -190,7 +190,7 @@
     },
     {
         "id": 20,
-        "idCategory": "indumentaria",
+        "category": "Indumentaria",
         "title": "Remera Templario",
         "price": 3800,
         "description": "Talles desde XS hasta XXL",
@@ -200,7 +200,7 @@
     },
     {
         "id": 21,
-        "idCategory": "indumentaria",
+        "category": "Indumentaria",
         "title": "Remera Armadura inspiración LOTR",
         "price": 3800,
         "description": "Talles desde XS hasta XXL",
@@ -210,7 +210,7 @@
     },
     {
         "id": 22,
-        "idCategory": "indumentaria",
+        "category": "Indumentaria",
         "title": "Remera Armadura Medieval",
         "price": 3800,
         "description": "Talles desde XS hasta XXL",
@@ -220,7 +220,7 @@
     },
     {
         "id": 23,
-        "idCategory": "indumentaria",
+        "category": "Indumentaria",
         "title": "Gorro tejido estilo yelmo",
         "price": 3800,
         "description": "Por encargo, todas las medidas, disponible 15 días después de la compra.",
@@ -230,7 +230,7 @@
     },
     {
         "id": 24,
-        "idCategory": "indumentaria",
+        "category": "Indumentaria",
         "title": "Vestido estilo medieval inglés",
         "price": 4500,
         "description": "Talles del XS al XXL. Escote bote, mangas campana, detalles en el escote, cintura y mangas. Color: verde.",

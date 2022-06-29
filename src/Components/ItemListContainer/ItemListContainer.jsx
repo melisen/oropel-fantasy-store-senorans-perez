@@ -4,6 +4,8 @@ import React from 'react'
 import ItemList from './ItemList'
 
 import { useEffect, useState } from 'react';
+import { useParams} from 'react-router-dom';
+
 
 
 
@@ -12,28 +14,33 @@ export default function ItemListContainer({greeting}) {
   const [error, setError] = useState(false);
   const [productosLista, setProductosLista] = useState([]);
 
-    
+  let {idCategory} = useParams();
+  console.log("idCategory", idCategory);
 
     useEffect( ()=>{
 
- 
-
       let promesaProductos = new Promise((resolve, rej) =>{
         setTimeout( ()=>{
-            resolve(() =>{
-              fetch('./listado-productos.json')
+            
+              fetch("http://localhost:3000/listado-productos.json")
               .then( (response)=> response.json() )
               .then ( (data)=> {
-                setProductosLista(data);
-                console.log(productosLista);
+                resolve(data);
+                console.log(data);
               }) 
-          });        
+                 
         }, 2000);
       });
 
       promesaProductos
       .then( (resultado)=>{
-        setProductosLista(resultado);
+        if (!idCategory){
+          setProductosLista(resultado);
+        }else{
+          let arrayProductosFiltrado = resultado.filter((elemento) => elemento.category === idCategory)
+          setProductosLista(arrayProductosFiltrado);
+        }
+
       })
       .catch((error)=>{
         setError(true);
@@ -41,9 +48,9 @@ export default function ItemListContainer({greeting}) {
        .finally( ()=>{
         setLoading(false);
        })
-    }, []);
-    
-    
+    }, [idCategory]);
+
+        
 
   return (
     <div>

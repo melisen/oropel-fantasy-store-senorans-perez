@@ -3,7 +3,7 @@
     flex-wrap: wrap;
 }
 .cardArticulo{
-    margin: 10px 15px;
+    margin: 15px 10px;
 }
 .contenedorImagen{
     display:flex;
@@ -13,10 +13,16 @@
 .cardImg{
     max-height: 200px;
 }
+.titleArticulo{
+    height:4rem;
+}
 .descriptionArticulo{
+    height:6rem;
     color: #ece6c3;
     ;
     background-color: #283322;
     padding: 8px;
     border-radius: 4px;
 }
+
+

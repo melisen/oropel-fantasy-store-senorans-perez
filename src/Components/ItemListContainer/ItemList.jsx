@@ -13,7 +13,7 @@ export default function ItemList({productosLista}) {
     <div className="ItemList">
         {
           productosLista.map((item)=>
-            <Item key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} pictureURL={item.pictureURL} />
+            <Item key={item.id} {...item} />
           )
         }
         
