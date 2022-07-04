@@ -3,7 +3,12 @@ import NavBar from "./Components/Navbar/NavBar";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { useContext } from "react";
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer.jsx"
+import Cart from"./Components/Cart/Cart.jsx";
+import { MyCartContext } from "./Components/Cart/CartContext";
+
+
 
 
 const themeOropel = createTheme({
@@ -45,21 +50,26 @@ const themeOropel = createTheme({
 
 
 function App() {
+  
+  const cart = useContext(MyCartContext);
 
-  //SACAR ITEMDETAILCONTAINER SUELTO
+
   return (
     <BrowserRouter>
     <ThemeProvider theme={themeOropel}>
+ 
     <div>
     <NavBar  />
       <Routes>
         <Route path="/" element={<ItemListContainer greeting={"¡Bienvenidos a Oropel!"} />} />
         <Route path="/category/:idCategory" element={<ItemListContainer greeting={"¡Bienvenidos a Oropel!"}/>} />
         <Route path="/item/:idItem" element={<ItemDetailContainer />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       
 
     </div>
+
     </ThemeProvider>
     </BrowserRouter>
   );

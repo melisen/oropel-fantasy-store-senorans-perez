@@ -3,8 +3,9 @@ import { Typography } from '@mui/material'
 import React from 'react'
 import ItemList from './ItemList'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams} from 'react-router-dom';
+import {MyCartContext} from '../Cart/CartContext'
 
 
 
@@ -26,7 +27,6 @@ export default function ItemListContainer({greeting}) {
               .then( (response)=> response.json() )
               .then ( (data)=> {
                 resolve(data);
-                console.log(data);
               }) 
                  
         }, 2000);

@@ -6,6 +6,12 @@ import Grid from '@mui/material/Grid';
 import "./ItemDetail.css"
 import ItemCount from './ItemCount/ItemCount'
 
+import { Button } from '@mui/material';
+import {Link} from '@mui/material';
+import { useContext } from 'react';
+import { MyCartContext } from '../Cart/CartContext';
+
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#283322',
   ...theme.typography.h5,
@@ -35,9 +41,13 @@ const ItemTexto = styled(Paper)(({ theme }) => ({
 
 export default function ItemDetail({itemProducto}) {
 
-    function onAdd(items, cantidadStock){
-        if((items>0)&&(cantidadStock>0)){ 
-          alert("¡Agregaste "+ JSON.stringify(items)+ " artículos a tu carrito!")
+  const {addItem} = useContext(MyCartContext);
+
+
+    function onAdd(quantity, cantidadStock){
+        if((quantity>0)&&(cantidadStock>0)){ 
+          addItem({itemProducto}, quantity);
+          alert("¡Agregaste "+ JSON.stringify(quantity)+ " de "+itemProducto.title+ "a tu carrito!")
         }
       }
 
@@ -60,10 +70,16 @@ export default function ItemDetail({itemProducto}) {
 
           <ItemCounter>$ {itemProducto.price}</ItemCounter>
           
-          <ItemCounter className="divItemCount">  <ItemCount stock= {5} initial={1}  onAdd={onAdd} articulo={itemProducto} /> </ItemCounter>
+          <ItemCounter className="divItemCount">  <ItemCount stock= {5} initial={1}  onAdd={onAdd} itemProducto={itemProducto} /> </ItemCounter>
           
-          <ItemTexto>Stock disponible: {itemProducto.stock}</ItemTexto>
+          <ItemCounter> 
+            <Button> 
+              <Link to= {'/cart'} style={{ color: 'inherit', textDecoration: 'none' }} >  Ver carrito </Link> 
+            </Button> 
+          </ItemCounter>
 
+          <ItemTexto>Stock disponible: {itemProducto.stock}</ItemTexto>
+ 
           <ItemTexto>{itemProducto.description}</ItemTexto>
           
         </Grid>

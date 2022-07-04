@@ -15,7 +15,7 @@ import { useState } from 'react';
 
 
 
-export default function ItemCount( {stock, initial, onAdd, articulo}) {
+export default function ItemCount( {stock, initial, onAdd, itemProducto}) {
 
   const [stockDisp, setStockDisp] = useState(stock);
   const [cantItems, setCantItems] = useState(initial);
@@ -41,7 +41,7 @@ export default function ItemCount( {stock, initial, onAdd, articulo}) {
         <React.Fragment>
     <CardContent>
       <Typography sx={{ fontSize: 14 }} color="text.secondary" style={{textAlign:'center'}} gutterBottom>
-        Artículo {articulo.id}
+        Artículo {itemProducto.id}
       </Typography>
       
       <div className="contadorCarrito">

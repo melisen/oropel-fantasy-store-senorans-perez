@@ -18,17 +18,14 @@ export default function ItemDetailContainer() {
                             .then((response)=> response.json())
                             .then((data)=>{
                                 resolve(data);
-                                console.log("hola ",data);
                             })
                 }, 2000)
             });
 
         promesaDetail
         .then((resultado)=> {
-            console.log(resultado)
                 let aux = resultado.find((elemento) => elemento.id == idItem)
                 setItemProducto(aux);
-            console.log(itemProducto);
         })
         .catch((error)=> {
             setError(true);
