@@ -7,7 +7,7 @@ import "./ItemDetail.css"
 import ItemCount from './ItemCount/ItemCount'
 
 import { Button } from '@mui/material';
-import {Link} from '@mui/material';
+import {Link} from 'react-router-dom';
 import { useContext } from 'react';
 import { MyCartContext } from '../Cart/CartContext';
 
@@ -73,8 +73,8 @@ export default function ItemDetail({itemProducto}) {
           <ItemCounter className="divItemCount">  <ItemCount stock= {5} initial={1}  onAdd={onAdd} itemProducto={itemProducto} /> </ItemCounter>
           
           <ItemCounter> 
-            <Button> 
-              <Link to= {'/cart'} style={{ color: 'inherit', textDecoration: 'none' }} >  Ver carrito </Link> 
+            <Button  sx={{backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 
+              <Link to={'/cart'} style={{ color: 'inherit', textDecoration: 'none' }} >  Comprar ahora </Link> 
             </Button> 
           </ItemCounter>
 
