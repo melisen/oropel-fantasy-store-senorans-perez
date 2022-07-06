@@ -9,7 +9,7 @@ import ItemCount from './ItemCount/ItemCount'
 import { Button } from '@mui/material';
 import {Link} from 'react-router-dom';
 import { useContext } from 'react';
-import { MyCartContext } from '../Cart/CartContext';
+import { MyCartContext } from "../../Context/CartContext";
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -46,8 +46,8 @@ export default function ItemDetail({itemProducto}) {
 
     function onAdd(quantity, cantidadStock){
         if((quantity>0)&&(cantidadStock>0)){ 
-          addItem({itemProducto}, quantity);
-          alert("¡Agregaste "+ JSON.stringify(quantity)+ " de "+itemProducto.title+ "a tu carrito!")
+          addItem(itemProducto, quantity);
+          alert("¡Agregaste "+ JSON.stringify(quantity)+ " de "+ itemProducto.title+ "a tu carrito!")
         }
       }
 

@@ -3,9 +3,9 @@ import { Typography } from '@mui/material'
 import React from 'react'
 import ItemList from './ItemList'
 
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams} from 'react-router-dom';
-import {MyCartContext} from '../Cart/CartContext'
+
 
 
 

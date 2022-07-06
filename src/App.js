@@ -6,7 +6,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { useContext } from "react";
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer.jsx"
 import Cart from"./Components/Cart/Cart.jsx";
-import { MyCartContext } from "./Components/Cart/CartContext";
+import { MyCartContext } from "./Context/CartContext";
 
 
 
