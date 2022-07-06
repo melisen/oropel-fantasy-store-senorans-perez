@@ -11,6 +11,8 @@ import Button from '@mui/material/Button';
 import { useContext } from 'react';
 import { MyCartContext } from '../../Context/CartContext';
 import { Typography } from '@mui/material';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import "./Cart.css";
 
 
 
@@ -34,7 +36,9 @@ export default function Cart() {
   return (
     <>
 
-    <div>
+    <div className="divCart">
+      <Typography  style={{color:'#e0f193d7', textAlign:'center', margin:'2rem'}} variant="h4"> Carrito </Typography>
+
       <TableContainer component={Paper} sx={{ width:8/10, borderRadius:'15px' }}>
       <Table  aria-label="simple table">
         <TableHead>
@@ -44,7 +48,7 @@ export default function Cart() {
             <TableCell align="right">Precio Unitario</TableCell>
             <TableCell align="right">Subtotal</TableCell>
             <TableCell align="right">Cantidad agregada</TableCell>
-            <TableCell align="right">BOTON ELIMINAR</TableCell>
+            <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -53,28 +57,30 @@ export default function Cart() {
               key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" >
+                <div style={{width:'2rem'}}>
                 {row.pictureURL}
+                </div>                
               </TableCell>
               <TableCell align="right">{row.title}</TableCell>
               <TableCell align="right">{row.price}</TableCell>
               <TableCell align="right">{row.subtotal}</TableCell>
               <TableCell align="right">{row.cantidad}</TableCell>
-              <TableCell align="right"><Button variant="contained" onClick={()=>{removeItem(row.id)}} >Icono eliminar</Button></TableCell>
+              <TableCell align="right"><Button variant="contained" onClick={()=>{removeItem(row.id)}} > <DeleteForeverIcon/> </Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
 
-        <div>
-          <Typography>
+        <div className="divFinalizarCompra">
+          <Typography style={{color:'#e0f193d7', textAlign:'center'}} variant="h5">
             Importe total  $ {importeTotal}
           </Typography>
           <Stack spacing={2} direction="row">
-      <Button variant="contained">Finalizar compra</Button>
-      <Button variant="outlined" onClick={()=>{clear()}} > Vaciar carrito</Button>
-    </Stack>
+            <Button variant="contained">Finalizar compra</Button>
+            <Button variant="outlined" onClick={()=>{clear()}}  sx={{ color:'secondary.main'}}> Vaciar carrito</Button>
+          </Stack>
         </div>
 
     </div>

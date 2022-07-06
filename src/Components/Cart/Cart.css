@@ -1,0 +1,18 @@
+
+.divCart{
+    width:85%;
+    border-radius: 20px;
+    background-color: #283322;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 2rem auto;
+}
+.divFinalizarCompra{
+    height:8rem;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-evenly;
+}
