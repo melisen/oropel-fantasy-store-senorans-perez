@@ -20,7 +20,7 @@ export default function CartContext({children}) {
             subtotal: item.price*item.cantidad
         
         }
-        isInCart(itemAgregado)
+        isInCart(itemAgregado);
 
         console.log("itemAgregado: ", itemAgregado.title, "  quantity: ", itemAgregado.cantidad);
         console.log("cart ", JSON.stringify(cart))
@@ -38,7 +38,7 @@ export default function CartContext({children}) {
     }
 
     const isInCart = (nuevoItem) => {
-        setCart( cart.reduce((acumulador, nuevoItem) => {
+         const CartSinDuplicados = cart.reduce((acumulador, nuevoItem) => {
                 let estaEnCarrito = cart.find((el) => el.id === nuevoItem.id);
                
                 if(estaEnCarrito){
@@ -57,15 +57,15 @@ export default function CartContext({children}) {
                         //si estaEnCarrito es false, el resultado final del reduce() es el array que ya estaba (el acumulador, que es cart) sumando el nuevoItem
                         return [...acumulador, nuevoItem];
                 }
-            }, []) )  //el reduce() inicializa como un array vacío
+            }, []);  //el reduce() inicializa como un array vacío
             
-            
+            setCart(CartSinDuplicados);
         }
     
     
     return (
         <>
-            <MyCartContext.Provider value={{ cart, addItem, removeItem, clear }}>
+            <MyCartContext.Provider value={{ ...cart, addItem, removeItem, clear }}>
                 {children}
             </MyCartContext.Provider>
         </>

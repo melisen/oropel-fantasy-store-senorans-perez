@@ -21,5 +21,6 @@
 .cartWidget{
     display: flex;
     flex-direction:row;
+    align-items: center;
     color:#ece6c3;
 }

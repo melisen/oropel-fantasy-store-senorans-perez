@@ -112,7 +112,7 @@ const ResponsiveAppBar = () => {
        
             ))}
           </Box>
-          <CartWidget   cantProductos={0}/>
+          <CartWidget/>
         </Toolbar>
       </Container>
     </AppBar>
