@@ -5,10 +5,13 @@ export const MyCartContext = createContext(null);
 
 export default function CartContext({children}) {
     const [cart, setCart] = useState([]);
-    
 
+    const isInCart = (item) => {
+        return cart.some((el) => el.id === item.id);
+    }
+    
     function addItem(item, quantity) {
-        const itemAgregado = 
+        let itemAgregado = 
         {
             id: item.id,
             title: item.title,
@@ -20,7 +23,31 @@ export default function CartContext({children}) {
             subtotal: item.price*item.cantidad
         
         }
-        isInCart(itemAgregado);
+        let carritoSinDuplicados = [];
+        carritoSinDuplicados =
+         cart.reduce((acumulador, nuevoItem) => {
+
+            let estaEnCarrito = isInCart(itemAgregado);
+            
+            if(estaEnCarrito){
+                    //sólo si estaEnCarrito es true, se suman las cantidades del elemento que ya estaba con el nuevoItem (el resto de los elementos del array se mapean sin  cambiar ninguna propiedad)
+                    return acumulador.map((el) => {
+                        if (el.id === estaEnCarrito.id) {
+                            return {
+                                ...el,
+                                cantidad: (el.cantidad + nuevoItem.cantidad)
+                            }
+                            } else{
+                            return el;
+                            }
+                        });
+            } else {
+                    //si estaEnCarrito es false, el resultado final del reduce() es el array que ya estaba (el acumulador, que es cart) sumando el nuevoItem
+                    return [...acumulador, nuevoItem];
+            }
+        }, [])   //el reduce() inicializa como un array vacío
+        
+        setCart(carritoSinDuplicados);
 
         console.log("itemAgregado: ", itemAgregado.title, "  quantity: ", itemAgregado.cantidad);
         console.log("cart ", JSON.stringify(cart))
@@ -37,35 +64,15 @@ export default function CartContext({children}) {
     
     }
 
-    const isInCart = (nuevoItem) => {
-         const CartSinDuplicados = cart.reduce((acumulador, nuevoItem) => {
-                let estaEnCarrito = cart.find((el) => el.id === nuevoItem.id);
-               
-                if(estaEnCarrito){
-                        //sólo si estaEnCarrito es true, se suman las cantidades del elemento que ya estaba con el nuevoItem (el resto de los elementos del array se mapean sin  cambiar ninguna propiedad)
-                        return acumulador.map((el) => {
-                            if (el.id === estaEnCarrito.id) {
-                                return {
-                                    ...el,
-                                    cantidad: (el.cantidad + nuevoItem.cantidad)
-                                }
-                                } else{
-                                return el;
-                                }
-                            });
-                } else {
-                        //si estaEnCarrito es false, el resultado final del reduce() es el array que ya estaba (el acumulador, que es cart) sumando el nuevoItem
-                        return [...acumulador, nuevoItem];
-                }
-            }, []);  //el reduce() inicializa como un array vacío
-            
-            setCart(CartSinDuplicados);
-        }
+
+
+
+        
     
     
     return (
         <>
-            <MyCartContext.Provider value={{ ...cart, addItem, removeItem, clear }}>
+            <MyCartContext.Provider value={{cart, addItem, removeItem, clear}}>
                 {children}
             </MyCartContext.Provider>
         </>

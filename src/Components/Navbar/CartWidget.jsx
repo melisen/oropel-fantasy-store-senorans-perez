@@ -8,20 +8,10 @@ import { MyCartContext } from "../../Context/CartContext";
 
 export default function CartWidget() {
 
-  const cart = useContext(MyCartContext);
+  const {cart} = useContext(MyCartContext);
 
-  const carritoHardcode = [
-       {
-          id: "1A",
-          cantidad: 2
-        },
-        {
-          id: "1B",
-          cantidad: 1
-        }
-      ]
 
-  let cantItemsWidget = carritoHardcode.reduce((acc, element)=> acc + element.cantidad, 0)
+  let cantItemsWidget = cart.reduce((acc, element)=> acc + element.cantidad, 0)
   
   
   return (

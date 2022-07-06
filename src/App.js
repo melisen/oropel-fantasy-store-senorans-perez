@@ -3,10 +3,8 @@ import NavBar from "./Components/Navbar/NavBar";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { useContext } from "react";
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer.jsx"
 import Cart from"./Components/Cart/Cart.jsx";
-import { MyCartContext } from "./Context/CartContext";
 
 
 
@@ -50,8 +48,6 @@ const themeOropel = createTheme({
 
 
 function App() {
-  
-  const cart = useContext(MyCartContext);
 
 
   return (
