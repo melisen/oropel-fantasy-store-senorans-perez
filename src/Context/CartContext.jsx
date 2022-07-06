@@ -20,7 +20,6 @@ export default function CartContext({children}) {
             subtotal: item.price*item.cantidad
         
         }
-        //setCart([...cart, itemAgregado]);
         isInCart(itemAgregado)
 
         console.log("itemAgregado: ", itemAgregado.title, "  quantity: ", itemAgregado.cantidad);
@@ -43,7 +42,7 @@ export default function CartContext({children}) {
                 let estaEnCarrito = cart.find((el) => el.id === nuevoItem.id);
                
                 if(estaEnCarrito){
-                        //sólo si estaEnCarrito es true, se suman las cantidades del elemento que ya estaba con el nuevoItem (el resto de los elementos del array no cambian ninguna propiedad)
+                        //sólo si estaEnCarrito es true, se suman las cantidades del elemento que ya estaba con el nuevoItem (el resto de los elementos del array se mapean sin  cambiar ninguna propiedad)
                         return acumulador.map((el) => {
                             if (el.id === estaEnCarrito.id) {
                                 return {
