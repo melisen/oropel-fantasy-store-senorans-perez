@@ -70,7 +70,7 @@ export default function ItemDetail({itemProducto}) {
 
           <ItemEstiloBotonera>$ {itemProducto.price}</ItemEstiloBotonera>
           
-          <ItemEstiloBotonera className="divItemCount">  <ItemCount  initial={1}  onAdd={onAdd} itemProducto={itemProducto} setCambiarBotones={setCambiarBotones} cambiarBotones={cambiarBotones}/> </ItemEstiloBotonera>
+          <ItemEstiloBotonera className="divItemCount">  <ItemCount  stock={5} initial={1}  onAdd={onAdd} itemProducto={itemProducto} setCambiarBotones={setCambiarBotones} cambiarBotones={cambiarBotones}/> </ItemEstiloBotonera>
           
           <ItemEstiloBotonera className={cambiarBotones ? 'seVeBoton' : 'NoSeVeBoton'}> 
             <Button   sx={{ backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 

@@ -15,9 +15,9 @@ import { useState} from 'react';
 
 
 
-export default function ItemCount( {initial, onAdd, itemProducto, setCambiarBotones, cambiarBotones}) {
+export default function ItemCount( {stock, initial, onAdd, itemProducto, setCambiarBotones, cambiarBotones}) {
 
-  const [stockDisp, setStockDisp] = useState(itemProducto.stock);
+  const [stockDisp, setStockDisp] = useState(stock);
   const [cantItems, setCantItems] = useState(initial);
 
   function agregar(){
@@ -57,7 +57,8 @@ export default function ItemCount( {initial, onAdd, itemProducto, setCambiarBoto
               <Button color='secondary' 
               onClick={ ()=> {
                 onAdd(cantItems, stockDisp);
-                setCambiarBotones(true)} } >
+                setCambiarBotones(true)
+              } } >
                   Agregar al carrito
                 </Button>
               </div>
