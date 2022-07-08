@@ -2,16 +2,25 @@
 import React from 'react'
 import "./NavBar.css";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { useContext } from 'react';
-import { MyCartContext } from "../../Context/CartContext";
+//import { useContext } from 'react';
+//import { MyCartContext } from "../../Context/CartContext";
 
 
 export default function CartWidget() {
 
-  const {cart} = useContext(MyCartContext);
+  //const {cart} = useContext(MyCartContext);
 
-
-  let cantItemsWidget = cart.reduce((acc, element)=> acc + element.cantidad, 0)
+ let carritoHardcore=[
+  {
+    id:1,
+    cantidad:2
+  },
+  {
+    id:2,
+    cantidad:4
+  }
+ ];
+   let cantItemsWidget = carritoHardcore.reduce((acc, element)=> acc + element.cantidad, 0)
   
   
   return (

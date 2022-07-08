@@ -43,11 +43,10 @@ export default function ItemDetail({itemProducto}) {
 
   const {addItem} = useContext(MyCartContext);
 
-
-    function onAdd(quantity, cantidadStock){
-        if((quantity>0)&&(cantidadStock>0)){ 
-          addItem(itemProducto, quantity);
-          alert("¡Agregaste "+ JSON.stringify(quantity)+ " de "+ itemProducto.title+ "a tu carrito!")
+    function onAdd(productos, cantidadStock){
+        if((productos>0)&&(cantidadStock>0)){ 
+          addItem(itemProducto, productos)
+          alert("¡Agregaste "+ JSON.stringify(productos)+ " de "+ itemProducto.title+ "a tu carrito!")
         }
       }
 
@@ -73,7 +72,7 @@ export default function ItemDetail({itemProducto}) {
           <ItemCounter className="divItemCount">  <ItemCount stock= {5} initial={1}  onAdd={onAdd} itemProducto={itemProducto} /> </ItemCounter>
           
           <ItemCounter> 
-            <Button  sx={{backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 
+            <Button   sx={{backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 
               <Link to={'/cart'} style={{ color: 'inherit', textDecoration: 'none' }} >  Comprar ahora </Link> 
             </Button> 
           </ItemCounter>
