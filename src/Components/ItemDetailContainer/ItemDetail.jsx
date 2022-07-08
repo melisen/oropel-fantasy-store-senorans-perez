@@ -8,7 +8,7 @@ import ItemCount from './ItemCount/ItemCount'
 
 import { Button } from '@mui/material';
 import {Link} from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { MyCartContext } from "../../Context/CartContext";
 
 
@@ -21,7 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.secondary,
 }));
 
-const ItemCounter = styled(Paper)(({ theme }) => ({
+const ItemEstiloBotonera = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
   ...theme.typography.h4,
   padding: theme.spacing(1),
@@ -42,10 +42,11 @@ const ItemTexto = styled(Paper)(({ theme }) => ({
 export default function ItemDetail({itemProducto}) {
 
   const {addItem} = useContext(MyCartContext);
-
-    function onAdd(productos, cantidadStock){
+  const [cambiarBotones, setCambiarBotones] = useState(false);
+    
+  function onAdd(productos, cantidadStock){
         if((productos>0)&&(cantidadStock>0)){ 
-          addItem(itemProducto, productos)
+          addItem(itemProducto, productos);
           alert("¡Agregaste "+ JSON.stringify(productos)+ " de "+ itemProducto.title+ "a tu carrito!")
         }
       }
@@ -67,15 +68,15 @@ export default function ItemDetail({itemProducto}) {
 
           <Item>{itemProducto.title}</Item>
 
-          <ItemCounter>$ {itemProducto.price}</ItemCounter>
+          <ItemEstiloBotonera>$ {itemProducto.price}</ItemEstiloBotonera>
           
-          <ItemCounter className="divItemCount">  <ItemCount stock= {5} initial={1}  onAdd={onAdd} itemProducto={itemProducto} /> </ItemCounter>
+          <ItemEstiloBotonera className="divItemCount">  <ItemCount  initial={1}  onAdd={onAdd} itemProducto={itemProducto} setCambiarBotones={setCambiarBotones} cambiarBotones={cambiarBotones}/> </ItemEstiloBotonera>
           
-          <ItemCounter> 
-            <Button   sx={{backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 
-              <Link to={'/cart'} style={{ color: 'inherit', textDecoration: 'none' }} >  Comprar ahora </Link> 
+          <ItemEstiloBotonera className={cambiarBotones ? 'seVeBoton' : 'NoSeVeBoton'}> 
+            <Button   sx={{ backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 
+              <Link to={'/cart'} style={{ color: 'inherit', textDecoration: 'none' }} >  Terminar mi compra </Link> 
             </Button> 
-          </ItemCounter>
+          </ItemEstiloBotonera>
 
           <ItemTexto>Stock disponible: {itemProducto.stock}</ItemTexto>
  

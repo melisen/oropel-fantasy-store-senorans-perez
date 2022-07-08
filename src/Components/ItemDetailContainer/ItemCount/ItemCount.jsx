@@ -15,13 +15,13 @@ import { useState} from 'react';
 
 
 
-export default function ItemCount( {stock, initial, onAdd, itemProducto}) {
+export default function ItemCount( {initial, onAdd, itemProducto, setCambiarBotones, cambiarBotones}) {
 
-  const [stockDisp, setStockDisp] = useState(stock);
+  const [stockDisp, setStockDisp] = useState(itemProducto.stock);
   const [cantItems, setCantItems] = useState(initial);
 
   function agregar(){
-    if ((cantItems<stock) && (stockDisp>0) ){
+    if ((cantItems<stockDisp) && (stockDisp>0) ){
       setCantItems(cantItems+1);
       setStockDisp(stockDisp-1)
     }
@@ -52,8 +52,15 @@ export default function ItemCount( {stock, initial, onAdd, itemProducto}) {
 
     </CardContent>
     <CardActions style={{display: 'flex',justifyContent: 'center',alignItems: 'center',}} >
-      <div className='contenedorCentrarBtn'>
-        <Button color='secondary' onClick={ ()=> {onAdd(cantItems, stockDisp)}} >Agregar al carrito</Button>
+      <div className='contenedorCentrarBtn' >
+            <div className={cambiarBotones ? 'NoSeVeBoton': 'seVeBoton'} >
+              <Button color='secondary' 
+              onClick={ ()=> {
+                onAdd(cantItems, stockDisp);
+                setCambiarBotones(true)} } >
+                  Agregar al carrito
+                </Button>
+              </div>
         </div>
     </CardActions>
   </React.Fragment>

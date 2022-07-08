@@ -11,3 +11,9 @@ color:#829e04d7;
     flex-direction: column;
     justify-content: center;
 }
+.seVeBoton{
+    display: block;
+}
+.NoSeVeBoton{
+    display:none;
+}
