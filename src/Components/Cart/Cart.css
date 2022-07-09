@@ -16,3 +16,9 @@
     align-items: center;
     justify-content: space-evenly;
 }
+.SeVe{
+    display:block;
+}
+.NoSeVe{
+    display:none;
+}

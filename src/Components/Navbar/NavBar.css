@@ -24,3 +24,9 @@
     align-items: center;
     color:#ece6c3;
 }
+.SeVe{
+    display:block;
+}
+.NoSeVe{
+    display:none;
+}

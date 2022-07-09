@@ -5,6 +5,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer.jsx"
 import Cart from"./Components/Cart/Cart.jsx";
+import CartContext from "./Context/CartContext";
+import {MyCartContext} from "./Context/CartContext";
+import { useContext } from "react";
 
 
 
@@ -49,6 +52,7 @@ const themeOropel = createTheme({
 
 function App() {
 
+  const {cart, addItem, removeItem, clear, setCarritoVacio, carritoVacio} = useContext(MyCartContext);
 
   return (
     <BrowserRouter>
