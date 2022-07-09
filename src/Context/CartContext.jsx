@@ -10,9 +10,7 @@ export default function CartContext({children}) {
     const [condicionCartVacio, setCondicionCartVacio] = useState(true)
    
 
-    const isInCart = (id) => {
-        return cart.find((el) => el.id === id);
-    }
+
     
     function addItem(item, quantity) {
         setCondicionCartVacio(false)
@@ -22,11 +20,12 @@ export default function CartContext({children}) {
             let indexProducto = nuevoCart.findIndex(element=> element.id === item.id); //busco index del producto por id
             nuevoCart[indexProducto].quantity = Number(nuevoCart[indexProducto].quantity) + Number(quantity);  // sumo quantity al valor que vino en el onAdd.
             setCart(nuevoCart); //seteo todo el array de nuevo pero modificado
+            
           }else{
             setCart([...cart, {...item, quantity:quantity }])
           }
             
-        
+
         console.log("cart ", JSON.stringify(cart))
     }
 
@@ -34,6 +33,7 @@ export default function CartContext({children}) {
     function removeItem(itemId) {
 
             setCart(cart.filter((el) => el.id !== itemId ) )
+
     }
 
 

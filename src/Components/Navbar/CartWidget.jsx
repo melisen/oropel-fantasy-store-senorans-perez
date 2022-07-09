@@ -12,11 +12,15 @@ export default function CartWidget() {
   useEffect(()=>{
     setCantCartWidget(cantItems)
   }, [cantItems])
+
+
   
   return (
   <div className="cartWidget">
     <AddShoppingCartIcon />
     <div className={cantCartWidget===0 ? 'NoSeVe' : 'SeVe' }> <p> {cantCartWidget}  </p> </div>
+
+
     </div>
     )
 }
