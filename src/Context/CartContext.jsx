@@ -5,15 +5,11 @@ export const MyCartContext = createContext();
 
 export default function CartContext({children}) {
     const [cart, setCart] = useState([]);
-<<<<<<< HEAD
      const [cantItems, setCantItems] =useState(0);
      const [importeTotal, setImporteTotal] = useState(0)
     const [condicionCartVacio, setCondicionCartVacio] = useState(true)
    
 
-=======
-    const [carritoVacio, setCarritoVacio] = useState(true)
->>>>>>> 0be3731aeac6a67e8f052761454fa22823f422bc
     const isInCart = (id) => {
         return cart.find((el) => el.id === id);
     }
@@ -43,14 +39,8 @@ export default function CartContext({children}) {
 
 
     function clear() {
-<<<<<<< HEAD
         setCart([])
         setCondicionCartVacio(true)
-=======
-        setCart([]);
-        setCarritoVacio(true)
-        
->>>>>>> 0be3731aeac6a67e8f052761454fa22823f422bc
     }
 
 // useEffect: cada vez que se actualiza cart, tiene que cambiar el número de items (el total de items de cart) para pasárselo al cartWidget. Tiene que calcular el importe total, y tiene que volver true la condición del carrito vacío cuando el array quede vacío:
