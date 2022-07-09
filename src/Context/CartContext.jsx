@@ -1,22 +1,25 @@
 
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 export const MyCartContext = createContext();
 
 export default function CartContext({children}) {
     const [cart, setCart] = useState([]);
-    const [carritoVacio, setCarritoVacio] = useState(true)
+     const [cantItems, setCantItems] =useState(0);
+     const [importeTotal, setImporteTotal] = useState(0)
+    const [condicionCartVacio, setCondicionCartVacio] = useState(true)
+   
 
     const isInCart = (id) => {
-        cart.find((el) => el.id === id);
+        return cart.find((el) => el.id === id);
     }
     
     function addItem(item, quantity) {
-        setCarritoVacio(false);
+        setCondicionCartVacio(false)
         if(isInCart(item.id)){
             //producto existe
             let nuevoCart = cart; //hago una copia de mi carrito actual
-            let indexProducto = nuevoCart.findIndex(element=> element.id == item.id); //busco index del producto por id
+            let indexProducto = nuevoCart.findIndex(element=> element.id === item.id); //busco index del producto por id
             nuevoCart[indexProducto].quantity = Number(nuevoCart[indexProducto].quantity) + Number(quantity);  // sumo quantity al valor que vino en el onAdd.
             setCart(nuevoCart); //seteo todo el array de nuevo pero modificado
           }else{
@@ -29,32 +32,26 @@ export default function CartContext({children}) {
 
 
     function removeItem(itemId) {
-       //primero filtra el carrito para elminar el item.
-       //Luego, si resulta que ese era el último item del carrito y éste queda vacío, setea CarritoVacio en true para que se muestre condicionalmente el mensaje y el botón de "Comenzar a comprar" en Cart.jsx
-        let promesaCarrito = new Promise((resolve, rej) =>{
-            resolve(
-                setCart( cart.filter((el) => el.id !== itemId ) )
-            )
-        })
-        promesaCarrito.then((resultado)=>{
-            resultado===[] && setCarritoVacio(true);
-        })
+
+            setCart(cart.filter((el) => el.id !== itemId ) )
     }
+
 
     function clear() {
-        setCart([]);
-        setCarritoVacio(true)
+        setCart([])
+        setCondicionCartVacio(true)
     }
 
-
-
-
-        
-    
+// useEffect: cada vez que se actualiza cart, tiene que cambiar el número de items (el total de items de cart) para pasárselo al cartWidget. Tiene que calcular el importe total, y tiene que volver true la condición del carrito vacío cuando el array quede vacío:
+    useEffect( ()=>{
+        setCantItems(cart.reduce((acc, element)=> acc + element.quantity, 0));
+        cart.lenght===0 && setCondicionCartVacio(true);
+        setImporteTotal( cart.reduce((acc, elemento) => acc + elemento.price*elemento.quantity, 0) );
+      }, [cart]);
     
     return (
         <>
-            <MyCartContext.Provider value={{cart, addItem, removeItem, clear, setCarritoVacio, carritoVacio}}>
+            <MyCartContext.Provider value={{ cantItems, cart, addItem, removeItem, clear, condicionCartVacio, importeTotal}}>
                 {children}
             </MyCartContext.Provider>
         </>

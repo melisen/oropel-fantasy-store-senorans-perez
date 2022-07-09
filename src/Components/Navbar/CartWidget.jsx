@@ -1,23 +1,22 @@
 //@ts-check
-import React from 'react'
 import "./NavBar.css";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { MyCartContext } from "../../Context/CartContext";
 
 
 export default function CartWidget() {
 
-  const {cart, carritoVacio} = useContext(MyCartContext);
-
-  let cantItemsWidget = cart.reduce((acc, element)=> acc + element.quantity, 0)
-  
+  const {cantItems} = useContext(MyCartContext);
+  const [cantCartWidget, setCantCartWidget] = useState(0);
+  useEffect(()=>{
+    setCantCartWidget(cantItems)
+  }, [cantItems])
   
   return (
   <div className="cartWidget">
     <AddShoppingCartIcon />
-    <div className={carritoVacio ? 'NoSeVe' : 'SeVe' }> <p> {cantItemsWidget}  </p> </div>
+    <div className={cantCartWidget===0 ? 'NoSeVe' : 'SeVe' }> <p> {cantCartWidget}  </p> </div>
     </div>
-  
     )
 }
