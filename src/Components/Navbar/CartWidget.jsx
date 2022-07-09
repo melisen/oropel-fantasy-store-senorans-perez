@@ -9,14 +9,18 @@ import { MyCartContext } from "../../Context/CartContext";
 export default function CartWidget() {
 
   const {cart, carritoVacio} = useContext(MyCartContext);
+  let cantProductos = 0;
+  if (cart.length) {
+      cart.forEach(element => {
+          cantProductos += parseInt(element.quantity);
+      });
+  }
 
-  let cantItemsWidget = cart.reduce((acc, element)=> acc + element.quantity, 0)
-  
   
   return (
   <div className="cartWidget">
     <AddShoppingCartIcon />
-    <div className={carritoVacio ? 'NoSeVe' : 'SeVe' }> <p> {cantItemsWidget}  </p> </div>
+    <div className={carritoVacio ? 'NoSeVe' : 'SeVe' }> <p> {cantProductos}  </p> </div>
     </div>
   
     )

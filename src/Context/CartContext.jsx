@@ -6,9 +6,8 @@ export const MyCartContext = createContext();
 export default function CartContext({children}) {
     const [cart, setCart] = useState([]);
     const [carritoVacio, setCarritoVacio] = useState(true)
-
     const isInCart = (id) => {
-        cart.find((el) => el.id === id);
+        return cart.find((el) => el.id === id);
     }
     
     function addItem(item, quantity) {
@@ -19,11 +18,12 @@ export default function CartContext({children}) {
             let indexProducto = nuevoCart.findIndex(element=> element.id == item.id); //busco index del producto por id
             nuevoCart[indexProducto].quantity = Number(nuevoCart[indexProducto].quantity) + Number(quantity);  // sumo quantity al valor que vino en el onAdd.
             setCart(nuevoCart); //seteo todo el array de nuevo pero modificado
+            
           }else{
             setCart([...cart, {...item, quantity:quantity }])
           }
             
-        
+
         console.log("cart ", JSON.stringify(cart))
     }
 
@@ -44,6 +44,7 @@ export default function CartContext({children}) {
     function clear() {
         setCart([]);
         setCarritoVacio(true)
+        
     }
 
 
