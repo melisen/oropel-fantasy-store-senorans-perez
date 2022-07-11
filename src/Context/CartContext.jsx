@@ -1,5 +1,5 @@
 
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState } from 'react';
 
 export const MyCartContext = createContext();
 
@@ -22,9 +22,13 @@ export default function CartContext({children}) {
             let indexProducto = nuevoCart.findIndex(element=> element.id === item.id); //busco index del producto por id
             nuevoCart[indexProducto].quantity = Number(nuevoCart[indexProducto].quantity) + Number(quantity);  // sumo quantity al valor que vino en el onAdd.
             setCart(nuevoCart); //seteo todo el array de nuevo pero modificado
+            setCantItems(nuevoCart.reduce((acc, element)=> acc + element.quantity, 0));
             
           }else{
-            setCart([...cart, {...item, quantity:quantity }])
+            const nuevoCarrito = [...cart, {...item, quantity:quantity }];
+            setCart(nuevoCarrito)
+            setCantItems(nuevoCarrito.reduce((acc, element)=> acc + element.quantity, 0));
+            setImporteTotal( nuevoCarrito.reduce((acc, elemento) => acc + elemento.price*elemento.quantity, 0) );
           }
             
 
@@ -33,22 +37,24 @@ export default function CartContext({children}) {
 
 
     function removeItem(itemId) {
-
-            setCart(cart.filter((el) => el.id !== itemId ) )
+        const nuevoCarrito = cart.filter((el) => el.id !== itemId );
+            setCart(nuevoCarrito)   
+            setCantItems(nuevoCarrito.reduce((acc, element)=> acc + element.quantity, 0));
+            nuevoCarrito.lenght===0 && setCondicionCartVacio(true);
+            setImporteTotal( nuevoCarrito.reduce((acc, elemento) => acc + elemento.price*elemento.quantity, 0) );
     }
 
 
     function clear() {
-        setCart([])
+        const nuevoCarrito=[];
+        setCart(nuevoCarrito);
+        setCantItems(0);
         setCondicionCartVacio(true)
+        setImporteTotal(0)
+;        
     }
 
-// useEffect: cada vez que se actualiza cart, tiene que cambiar el número de items (el total de items de cart) para pasárselo al cartWidget. Tiene que calcular el importe total, y tiene que volver true la condición del carrito vacío cuando el array quede vacío:
-    useEffect( ()=>{
-        setCantItems(cart.reduce((acc, element)=> acc + element.quantity, 0));
-        cart.lenght===0 && setCondicionCartVacio(true);
-        setImporteTotal( cart.reduce((acc, elemento) => acc + elemento.price*elemento.quantity, 0) );
-      }, [cart]);
+
     
     return (
         <>
