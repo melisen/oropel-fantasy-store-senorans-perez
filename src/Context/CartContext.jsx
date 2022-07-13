@@ -23,6 +23,8 @@ export default function CartContext({children}) {
             nuevoCart[indexProducto].quantity = Number(nuevoCart[indexProducto].quantity) + Number(quantity);  // sumo quantity al valor que vino en el onAdd.
             setCart(nuevoCart); //seteo todo el array de nuevo pero modificado
             setCantItems(nuevoCart.reduce((acc, element)=> acc + element.quantity, 0));
+            setImporteTotal( nuevoCart.reduce((acc, elemento) => acc + elemento.price*elemento.quantity, 0) );
+
             
           }else{
             const nuevoCarrito = [...cart, {...item, quantity:quantity }];
@@ -30,18 +32,16 @@ export default function CartContext({children}) {
             setCantItems(nuevoCarrito.reduce((acc, element)=> acc + element.quantity, 0));
             setImporteTotal( nuevoCarrito.reduce((acc, elemento) => acc + elemento.price*elemento.quantity, 0) );
           }
-            
-
-        console.log("cart ", JSON.stringify(cart))
     }
+
 
 
     function removeItem(itemId) {
         const nuevoCarrito = cart.filter((el) => el.id !== itemId );
-            setCart(nuevoCarrito)   
-            setCantItems(nuevoCarrito.reduce((acc, element)=> acc + element.quantity, 0));
-            nuevoCarrito.lenght===0 && setCondicionCartVacio(true);
-            setImporteTotal( nuevoCarrito.reduce((acc, elemento) => acc + elemento.price*elemento.quantity, 0) );
+        nuevoCarrito===[] && setCondicionCartVacio(true);
+        setCart(nuevoCarrito)   
+        setCantItems(nuevoCarrito.reduce((acc, element)=> acc + element.quantity, 0));
+        setImporteTotal( nuevoCarrito.reduce((acc, elemento) => acc + elemento.price*elemento.quantity, 0) );
     }
 
 

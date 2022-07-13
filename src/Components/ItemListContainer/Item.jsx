@@ -15,15 +15,12 @@ export default function Item( {id, title, price, description, pictureURL}) {
 
   return (
     
-      <Card className="cardArticulo" sx={{ width: 290 }}>
+      <Card className="cardArticulo" >
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Artículo {id}
-          </Typography>
           <div className="contenedorImagen">
             <img src={pictureURL} alt={title} className="cardImg"/>
             </div>
-          <Typography variant="h5" component="div" className="titleArticulo" color="#ece6c3">
+          <Typography variant="h5" component="div" className="titleArticulo" color="#ece6c3" >
           {title}
           </Typography>
           <div className="descriptionArticulo">

@@ -3,6 +3,7 @@
     flex-wrap: wrap;
 }
 .cardArticulo{
+    width:290px;
     margin: 15px 10px;
 }
 .contenedorImagen{
@@ -14,7 +15,9 @@
     max-height: 200px;
 }
 .titleArticulo{
+
     height:4rem;
+    text-align:center;
 }
 .descriptionArticulo{
     height:6rem;

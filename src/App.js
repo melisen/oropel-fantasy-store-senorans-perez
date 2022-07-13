@@ -1,13 +1,12 @@
 //@ts-check
-import NavBar from "./Components/Navbar/NavBar";
-import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
+import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer.jsx"
 import Cart from"./Components/Cart/Cart.jsx";
-import CartContext from "./Context/CartContext";
-import {MyCartContext} from "./Context/CartContext";
-import { useContext } from "react";
+import NavBar from "./Components/Navbar/NavBar";
+import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
+
 
 
 
@@ -52,12 +51,11 @@ const themeOropel = createTheme({
 
 function App() {
 
-  const {cart, addItem, removeItem, clear, setCarritoVacio, carritoVacio} = useContext(MyCartContext);
+  
 
   return (
     <BrowserRouter>
     <ThemeProvider theme={themeOropel}>
- 
     <div>
     <NavBar  />
       <Routes>
@@ -66,10 +64,7 @@ function App() {
         <Route path="/item/:idItem" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
-      
-
     </div>
-
     </ThemeProvider>
     </BrowserRouter>
   );

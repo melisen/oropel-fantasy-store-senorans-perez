@@ -5,6 +5,7 @@ import ItemList from './ItemList'
 
 import { useEffect, useState } from 'react';
 import { useParams} from 'react-router-dom';
+import {collection, getDocs, getFirestore, where, query} from "firebase/firestore";
 
 
 
@@ -20,34 +21,36 @@ export default function ItemListContainer({greeting}) {
 
     useEffect( ()=>{
 
-      let promesaProductos = new Promise((resolve, rej) =>{
-        setTimeout( ()=>{
-            
-              fetch("http://localhost:3000/listado-productos.json")
-              .then( (response)=> response.json() )
-              .then ( (data)=> {
-                resolve(data);
-              }) 
-                 
-        }, 2000);
-      });
-
-      promesaProductos
-      .then( (resultado)=>{
+      const db = getFirestore();
+      const collectionRef = collection(db, 'productos');
         if (!idCategory){
-          setProductosLista(resultado);
-        }else{
-          let arrayProductosFiltrado = resultado.filter((elemento) => elemento.category === idCategory)
-          setProductosLista(arrayProductosFiltrado);
-        }
-
-      })
-      .catch((error)=>{
-        setError(true);
-       })
-       .finally( ()=>{
-        setLoading(false);
-       })
+        getDocs(collectionRef)
+        .then((res)=> {
+          const arrNormalizado = res.docs.map((element)=>({...element.data(), id: element.id}));
+          setProductosLista(arrNormalizado);
+        })
+        .catch((error)=>{
+          setError(true);
+         })
+         .finally( ()=>{
+          setLoading(false);
+         })
+  
+      } else{
+          const collectionFiltrada = query(collectionRef, where('category', '==', idCategory));
+          getDocs(collectionFiltrada)
+          .then((res)=> {
+            const arrNormalizado = res.docs.map((element)=>({...element.data(), id: element.id}));
+            setProductosLista(arrNormalizado);
+          })
+          .catch((error)=>{
+            setError(true);
+           })
+           .finally( ()=>{
+            setLoading(false);
+           })
+      }
+      
     }, [idCategory]);
 
         

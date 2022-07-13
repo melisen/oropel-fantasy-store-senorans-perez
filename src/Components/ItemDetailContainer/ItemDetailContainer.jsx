@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from "./ItemDetail.jsx"
 import { useParams } from 'react-router-dom';
+import {doc, getDoc, getFirestore} from "firebase/firestore";
 
 export default function ItemDetailContainer() {
     const [loading, setLoading] = useState(true);
@@ -11,6 +12,19 @@ export default function ItemDetailContainer() {
     let {idItem}= useParams() ;
 
     useEffect( ()=>{
+        const db = getFirestore();
+        const itemConsultadoRef = doc(db, 'productos', idItem);
+        getDoc(itemConsultadoRef)
+        .then((snapshot)=>{
+            setItemProducto({...snapshot.data(), id: snapshot.id});
+        })
+        .catch((error)=> {
+            setError(true);
+        })
+        .finally(()=>{
+            setLoading(false);
+        })
+        /*
         let promesaDetail = new Promise((resolve, rej) =>{
                 setTimeout( ()=>{
                         
@@ -27,12 +41,7 @@ export default function ItemDetailContainer() {
                 let aux = resultado.find((elemento) => elemento.id == idItem)
                 setItemProducto(aux);
         })
-        .catch((error)=> {
-            setError(true);
-        })
-        .finally(()=>{
-            setLoading(false);
-        })
+*/
 
     }, [idItem])
 

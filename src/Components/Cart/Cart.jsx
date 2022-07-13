@@ -35,12 +35,12 @@ export default function Cart() {
       <Table  aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>FOTO</TableCell>
-            <TableCell align="right">Producto</TableCell>
-            <TableCell align="right">Precio Unitario</TableCell>
-            <TableCell align="right">Subtotal</TableCell>
-            <TableCell align="right">Cantidad agregada</TableCell>
-            <TableCell align="right"></TableCell>
+            <TableCell ></TableCell>
+            <TableCell sx={{ width:5/10,}} align="center">Producto</TableCell>
+            <TableCell align="center">Precio Unitario</TableCell>
+            <TableCell align="center">Subtotal</TableCell>
+            <TableCell align="center">Cantidad agregada</TableCell>
+            <TableCell align="center"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -50,15 +50,13 @@ export default function Cart() {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row" >
-                <div style={{width:'2rem'}}>
-                <img src=" {row.pictureURL}" alt="{row.title}"/>
-                </div>                
+                <img  style={{width:'3rem'}} src={row.pictureURL} alt={row.title}/>               
               </TableCell>
               <TableCell align="right">{row.title}</TableCell>
-              <TableCell align="right">$ {row.price}</TableCell>
-              <TableCell align="right">$ {row.price*row.quantity}</TableCell>
-              <TableCell align="right">{row.quantity}</TableCell>
-              <TableCell align="right"><Button variant="contained" onClick={()=>{removeItem(row.id)}} > <DeleteForeverIcon/> </Button></TableCell>
+              <TableCell align="center">$ {row.price}</TableCell>
+              <TableCell align="center">$ {row.price*row.quantity}</TableCell>
+              <TableCell align="center">{row.quantity}</TableCell>
+              <TableCell align="center"><Button variant="contained" onClick={()=>{removeItem(row.id)}} > <DeleteForeverIcon/> </Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
