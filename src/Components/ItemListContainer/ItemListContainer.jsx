@@ -25,7 +25,8 @@ export default function ItemListContainer({greeting}) {
               setTimeout(()=>{resolve(getDocs(collectionRef))}, 1000)
             })
             
-          collectionEncontrada.then((res)=> {
+          collectionEncontrada
+          .then((res)=> {
             const arrNormalizado = res.docs.map((element)=>({...element.data(), id: element.id}));
             setProductosLista(arrNormalizado);
           })
