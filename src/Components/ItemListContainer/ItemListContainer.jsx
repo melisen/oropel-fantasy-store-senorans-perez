@@ -2,13 +2,9 @@
 import { Typography } from '@mui/material'
 import React from 'react'
 import ItemList from './ItemList'
-
 import { useEffect, useState } from 'react';
 import { useParams} from 'react-router-dom';
 import {collection, getDocs, getFirestore, where, query} from "firebase/firestore";
-
-
-
 
 
 export default function ItemListContainer({greeting}) {
@@ -23,23 +19,29 @@ export default function ItemListContainer({greeting}) {
 
       const db = getFirestore();
       const collectionRef = collection(db, 'productos');
+
         if (!idCategory){
-        getDocs(collectionRef)
-        .then((res)=> {
-          const arrNormalizado = res.docs.map((element)=>({...element.data(), id: element.id}));
-          setProductosLista(arrNormalizado);
-        })
-        .catch((error)=>{
-          setError(true);
-         })
-         .finally( ()=>{
-          setLoading(false);
-         })
-  
+            let collectionEncontrada = new Promise((resolve, rej)=>{
+              setTimeout(()=>{resolve(getDocs(collectionRef))}, 1000)
+            })
+            
+          collectionEncontrada.then((res)=> {
+            const arrNormalizado = res.docs.map((element)=>({...element.data(), id: element.id}));
+            setProductosLista(arrNormalizado);
+          })
+          .catch((error)=>{
+            setError(true);
+          })
+          .finally( ()=>{
+            setLoading(false);
+          })
       } else{
           const collectionFiltrada = query(collectionRef, where('category', '==', idCategory));
-          getDocs(collectionFiltrada)
-          .then((res)=> {
+          let arrayFiltrado = new Promise((resolve, rej)=>{
+            setTimeout(()=>{  resolve(getDocs(collectionFiltrada))}, 1000)
+          })
+        
+          arrayFiltrado.then((res)=> {
             const arrNormalizado = res.docs.map((element)=>({...element.data(), id: element.id}));
             setProductosLista(arrNormalizado);
           })
@@ -50,7 +52,6 @@ export default function ItemListContainer({greeting}) {
             setLoading(false);
            })
       }
-      
     }, [idCategory]);
 
         

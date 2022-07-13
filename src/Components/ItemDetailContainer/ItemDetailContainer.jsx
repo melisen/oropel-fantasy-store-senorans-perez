@@ -14,7 +14,11 @@ export default function ItemDetailContainer() {
     useEffect( ()=>{
         const db = getFirestore();
         const itemConsultadoRef = doc(db, 'productos', idItem);
-        getDoc(itemConsultadoRef)
+        let promesaItem = new Promise((resolve, rej)=>{
+            setTimeout(()=>{resolve(getDoc(itemConsultadoRef)) }, 1000)
+        })
+        
+        promesaItem
         .then((snapshot)=>{
             setItemProducto({...snapshot.data(), id: snapshot.id});
         })

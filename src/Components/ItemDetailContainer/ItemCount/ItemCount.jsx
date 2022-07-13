@@ -41,7 +41,7 @@ export default function ItemCount( {stock, initial, onAdd, itemProducto, setCamb
         <React.Fragment>
     <CardContent>
       <Typography sx={{ fontSize: 14 }} color="text.secondary" style={{textAlign:'center'}} gutterBottom>
-        Artículo {itemProducto.id}
+        Artículo 
       </Typography>
       
       <div className="contadorCarrito">
