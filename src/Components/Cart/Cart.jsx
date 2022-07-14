@@ -37,9 +37,9 @@ export default function Cart() {
           <TableRow>
             <TableCell ></TableCell>
             <TableCell sx={{ width:5/10,}} align="center">Producto</TableCell>
-            <TableCell align="center">Precio Unitario</TableCell>
+            <TableCell align="center">Precio</TableCell>
             <TableCell align="center">Subtotal</TableCell>
-            <TableCell align="center">Cantidad agregada</TableCell>
+            <TableCell align="center"></TableCell>
             <TableCell align="center"></TableCell>
           </TableRow>
         </TableHead>
@@ -75,7 +75,7 @@ export default function Cart() {
               Importe total  $ {importeTotal}
             </Typography>
             <Stack spacing={2} direction="row">
-              <Button variant="contained">Finalizar compra</Button>
+              <Button variant="contained"> <Link to='/checkout' style={{ color: 'inherit', textDecoration: 'none' }}> Finalizar compra</Link></Button>
               <Button variant="outlined" onClick={()=>{  clear()}}  sx={{ color:'secondary.main'}}> Vaciar carrito</Button>
             </Stack>
           </div>

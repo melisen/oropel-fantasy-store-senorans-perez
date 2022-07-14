@@ -12,6 +12,7 @@ import { useContext, useState } from 'react';
 import { MyCartContext } from "../../Context/CartContext";
 
 
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#283322',
   ...theme.typography.h5,
@@ -43,6 +44,11 @@ export default function ItemDetail({itemProducto}) {
 
   const {addItem} = useContext(MyCartContext);
   const [cambiarBotones, setCambiarBotones] = useState(false);
+  
+  
+ 
+  
+  
     
   function onAdd(productos, cantidadStock){
         if((productos>0)&&(cantidadStock>0)){ 
@@ -68,9 +74,9 @@ export default function ItemDetail({itemProducto}) {
 
           <Item>{itemProducto.title}</Item>
 
-          <ItemEstiloBotonera>$ {itemProducto.price}</ItemEstiloBotonera>
+          <ItemEstiloBotonera>$ {itemProducto.price}</ItemEstiloBotonera> 
           
-          <ItemEstiloBotonera className="divItemCount">  <ItemCount  stock={5} initial={1}  onAdd={onAdd} itemProducto={itemProducto} setCambiarBotones={setCambiarBotones} cambiarBotones={cambiarBotones}/> </ItemEstiloBotonera>
+           <ItemEstiloBotonera className="divItemCount" >   {!cambiarBotones && <ItemCount   stock={itemProducto.stock} initial={1}  onAdd={onAdd}  setCambiarBotones={setCambiarBotones} />} </ItemEstiloBotonera>
           
           <ItemEstiloBotonera className={cambiarBotones ? 'seVeBoton' : 'NoSeVeBoton'}> 
             <Button   sx={{ backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 

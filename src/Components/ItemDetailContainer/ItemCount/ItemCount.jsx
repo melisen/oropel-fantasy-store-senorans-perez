@@ -15,22 +15,20 @@ import { useState} from 'react';
 
 
 
-export default function ItemCount( {stock, initial, onAdd, itemProducto, setCambiarBotones, cambiarBotones}) {
+export default function ItemCount( {stock, initial, onAdd, setCambiarBotones}) {
 
-  const [stockDisp, setStockDisp] = useState(stock);
+  
   const [cantItems, setCantItems] = useState(initial);
 
   function agregar(){
-    if ((cantItems<stockDisp) && (stockDisp>0) ){
+    if (cantItems<stock ){
       setCantItems(cantItems+1);
-      setStockDisp(stockDisp-1)
     }
   }
 
   function remover(){
     if (cantItems>1){
     setCantItems(cantItems-1);
-    setStockDisp(stockDisp+1)
     }
   }
 
@@ -53,10 +51,10 @@ export default function ItemCount( {stock, initial, onAdd, itemProducto, setCamb
     </CardContent>
     <CardActions style={{display: 'flex',justifyContent: 'center',alignItems: 'center',}} >
       <div className='contenedorCentrarBtn' >
-            <div className={cambiarBotones ? 'NoSeVeBoton': 'seVeBoton'} >
+            <div  >
               <Button color='secondary' 
               onClick={ ()=> {
-                onAdd(cantItems, stockDisp);
+                onAdd(cantItems, stock);
                 setCambiarBotones(true)
               } } >
                   Agregar al carrito

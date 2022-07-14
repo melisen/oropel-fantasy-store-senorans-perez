@@ -1,0 +1,26 @@
+.divCheckout{
+width:85%;
+border-radius: 20px;
+background-color: #283322;
+display:flex;
+flex-direction:column;
+align-items: center;
+justify-content: space-evenly;
+margin: 2rem auto;
+}
+.Columnas{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.divFormulario{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:2rem;
+    margin: 1rem 2rem;
+    border-radius:20px;
+    background-color: black;
+}
