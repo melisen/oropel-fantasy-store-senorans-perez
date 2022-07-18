@@ -12,6 +12,7 @@ import { useState, useContext } from 'react';
 import { MyCartContext } from '../../Context/CartContext';
 import "./CheckOut.css"
 import { Button, Typography } from '@mui/material';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 import TextField from '@mui/material/TextField';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
@@ -24,6 +25,8 @@ export default function CheckOut() {
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [open, setOpen] = React.useState(false);
+    const [mostrarCodigo, setMostrarCodigo] = useState(false)
+    const [codigo, setCodigo] = useState("")
 
     
 
@@ -35,9 +38,10 @@ export default function CheckOut() {
                 total: importeTotal  }
             const db = getFirestore();
             const collectionPedidosRef= collection(db, 'pedidos')
-            addDoc(collectionPedidosRef, pedido).then(({id})=> console.log(id));
+            addDoc(collectionPedidosRef, pedido).then(({id})=> {console.log(id); setCodigo(id)});
             clear();
             clearForm();
+            setMostrarCodigo(true)
         }
 
         function CamposValidados(){
@@ -138,7 +142,15 @@ export default function CheckOut() {
                 }} variant="contained">Confirmar compra</Button>
             </Paper>
         </div>
+        <div className={mostrarCodigo? 'seVe': 'noSeVe'}>
+        <Paper className='divFormulario'>
+            <Typography style={{fontSize:'1.2rem'}}> <AddTaskIcon/> El código de su compra es:</Typography>
+            <div className='codigoStyle'> <span>{codigo} </span> </div>
+            <Typography> Chequee su correo para ver el seguimiento de su pedido</Typography>
+        </Paper >
     </div>
+    </div>
+
     </>
   )
 }
