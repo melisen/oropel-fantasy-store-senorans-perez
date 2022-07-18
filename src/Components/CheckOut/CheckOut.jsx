@@ -1,4 +1,14 @@
-import React, { useState, useContext } from 'react'
+import React  from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import { useState, useContext } from 'react';
 import { MyCartContext } from '../../Context/CartContext';
 import "./CheckOut.css"
 import { Button, Typography } from '@mui/material';
@@ -7,41 +17,126 @@ import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 export default function CheckOut() {
     
-    const {cart, importeTotal} = useContext(MyCartContext);
+    const {cart, importeTotal, clear} = useContext(MyCartContext);
+    
 
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
+    const [open, setOpen] = React.useState(false);
 
     
 
         function handleClickComprar(){
             const pedido = { 
-                buyer: { name, phone, email }, 
+                buyer: { name, phone, email}, 
                 items: [...cart], 
                 date: Date(), 
                 total: importeTotal  }
             const db = getFirestore();
             const collectionPedidosRef= collection(db, 'pedidos')
-            addDoc(collectionPedidosRef, pedido).then(({id})=> console.log(id))
+            addDoc(collectionPedidosRef, pedido).then(({id})=> console.log(id));
+            clear();
+            clearForm();
         }
+
+        function CamposValidados(){
+            if(name==="" || phone==="" || email===""){
+                setOpen(true)
+             }else {
+                handleClickComprar();
+                
+            }
+        }
+
+          function validarEmail(valor){
+            let re = /\S+@\S+\.\S+/;
+            if(  re.test(valor)  && (valor!=="")){
+                setEmail(valor)
+            }
+          }
+          
+          function validarName(valor){ 
+            if( (/^[A-z ]+$/.test(valor)) && (valor!=="") ){
+            setName(valor)
+            }
+          }
+
+          function validarPhone(valor){
+            let numTel = /^\d{8,12}$/;
+            if( valor.match(numTel)  && (valor!=="") ){
+                setPhone(valor)
+            }
+          }
+          function clearForm(){
+            setName("");
+            setEmail("");
+            setPhone("")
+          }
+
+        const handleClose = (event, reason) => {
+            if (reason === 'clickaway') {
+            return;
+            }
+            setOpen(false);
+        };
+
+        const action = (
+            <React.Fragment>
+            <Button color="secondary" size="small" onClick={handleClose}>
+                UNDO
+            </Button>
+            <IconButton
+                size="small"
+                aria-label="close"
+                color="primary"
+                onClick={handleClose}
+            >
+                <CloseIcon fontSize="small" />
+            </IconButton>
+            </React.Fragment>
+        );
+
 
   return (
     <>
     <div className='divCheckout'>
-        <Typography  style={{color:'#e0f193d7', textAlign:'center', margin:'2rem'}} variant="h4"> Resumen de compra </Typography>
+        <Typography  style={{color:'#e0f193d7', textAlign:'center', margin:'1rem'}} variant="h4"> Resumen de compra </Typography>
         <div className='Columnas'>
-            <div className='divFormulario'>
+            <Paper className='divFormulario'>
                 <Typography variant="h5" style={{color:'#e0f193d7', textAlign:'center'}}>Productos</Typography>
+    <TableContainer component={Paper}>
+        <Table  aria-label="simple table">
+            <TableBody>
+                {cart.map((row) => (
+                <TableRow  key={row.title} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}  >
+                    <TableCell align="center">{row.quantity}</TableCell>
+                    <TableCell align="center" sx={{ width:7/10 }}>{row.title}</TableCell>                    
+                    <TableCell align="center">${row.price}</TableCell>
+ 
+                </TableRow>
+                ))}
+            </TableBody>
+        </Table>
+    </TableContainer>
 
-            </div>
-            <div  className='divFormulario'>
+            </Paper>
+            <Paper  className='divFormulario'>
                 <Typography variant="h5" style={{color:'#e0f193d7', textAlign:'center'}}>Datos personales</Typography>
-                <TextField onChange={(e)=> setName(e.target.value)} id="outlined-basic" label="Name" variant="outlined" type={"text"} placeholder={"Nombre"}/>
-                <TextField onChange={(e)=> setPhone(e.target.value)} id="outlined-basic" label="Phone" variant="outlined" type={"tel"} placeholder={"Teléfono"}/>
-                <TextField  onChange={(e)=> setEmail(e.target.value)} id="outlined-basic" label="Email" variant="outlined" type={"email"} placeholder={"Email"}/>
-                <Button onClick={handleClickComprar()} variant="contained">Confirmar compra</Button>
-            </div>
+                <TextField onChange={(e)=>validarName(e.target.value)} id="outlined-basic"variant="outlined" type={"text"} placeholder={"Nombre"} sx={{ width:8/10, margin:'0.7rem' }}/>
+                <TextField onChange={(e)=> validarPhone(e.target.value)} id="outlined-basic" variant="outlined" type={"tel"} placeholder={"Tel"} sx={{ width:8/10, margin:'0.7rem' }} />
+                <TextField  onChange={(e)=> validarEmail(e.target.value)} id="outlined-basic"  variant="outlined" type={"email"} placeholder={"Email"} sx={{ width:8/10, margin:'0.7rem' }}/>
+                <Snackbar sx={{backgroundColor:'primary.main'}}
+                    open={open}
+                    autoHideDuration={6000}
+                    onClose={handleClose}
+                    message="Debe completar todos los campos correctamente para confirmar la compra"
+                    action={action}
+                />
+                <Button onClick={()=>{
+                    CamposValidados()
+                }} variant="contained">Confirmar compra</Button>
+            </Paper>
         </div>
     </div>
     </>
