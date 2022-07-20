@@ -3,7 +3,6 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -76,36 +75,28 @@ export default function ItemDetail({itemProducto}) {
 
   return (
     <Box sx={{ flexGrow: 1 }} >
-      <Grid container spacing={2} >
-        <Grid item xs={6} >
-
-        <div className="columnaImagen">
-
+      <div container spacing={2} className='itemDetailContainer'>
+        <div item xs={6} >
+          <div className="columnaImagen">
             <img src={itemProducto.pictureURL} alt={itemProducto.title} className="imagenDetail"/>
-
+          </div>
         </div>
-        </Grid>
-        <Grid item xs={6} className='columnaInfo'>
-
+        <div item xs={6} className='columnaInfo'>
           <Item>{itemProducto.title}</Item>
-          
-           <ItemEstiloBotonera className="divItemCount" >   
-           <Typography variant='h4'> $ {itemProducto.price} </Typography>
-           {cambiarBotones && < AddShoppingCartIcon sx={{ fontSize: 60 }}/>} 
-           {!cambiarBotones && <ItemCount   stock={itemProducto.stock} initial={1}  onAdd={onAdd}  setCambiarBotones={setCambiarBotones} />} 
-           <div className={cambiarBotones ? 'seVeBoton' : 'NoSeVeBoton'}>
-           <Button   sx={{ backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 
-              <Link to={'/cart'} style={{ color: 'inherit', textDecoration: 'none' }} >  Terminar mi compra </Link> 
-            </Button> 
-           </div>
-           </ItemEstiloBotonera>
-
+          <ItemEstiloBotonera className="divItemCount" >   
+              <Typography variant='h4'> $ {itemProducto.price} </Typography>
+              {cambiarBotones && < AddShoppingCartIcon sx={{ fontSize: 60 }}/>} 
+              {!cambiarBotones && <ItemCount   stock={itemProducto.stock} initial={1}  onAdd={onAdd}  setCambiarBotones={setCambiarBotones} />} 
+              <div className={cambiarBotones ? 'seVeBoton' : 'NoSeVeBoton'}>
+                <Button   sx={{ backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 
+                    <Link to={'/cart'} style={{ color: 'inherit', textDecoration: 'none' }} >  Terminar mi compra </Link> 
+                </Button> 
+              </div>
+          </ItemEstiloBotonera>
           <ItemTexto>Stock disponible: {itemProducto.stock}</ItemTexto>
- 
           <ItemTexto>{itemProducto.description}</ItemTexto>
-          
-        </Grid>
-      </Grid>
+        </div>
+      </div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} >
         <Alert onClose={handleClose}  sx={{ width: '100%', backgroundColor:'primary.main' }} >
           {msgSnackbar}
