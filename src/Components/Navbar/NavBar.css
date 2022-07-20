@@ -34,3 +34,10 @@
 .NoSeVe{
     display:none;
 }
+
+/*MEDIA QUERY PARA SMARTPHONE*/
+@media (max-width: 480px) {
+    .fantasyStore{
+        display:none;
+    }
+}
