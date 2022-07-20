@@ -21,12 +21,24 @@ export default function CheckOut() {
     const {cart, importeTotal, clear} = useContext(MyCartContext);
     
 
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
-    const [email, setEmail] = useState("");
+    const [name, setName] = useState(() => {
+            const hayNombre = localStorage.getItem('name')
+            return hayNombre ? JSON.parse(hayNombre) : ""
+            });
+    const [phone, setPhone] = useState(() => {
+        const hayTel = localStorage.getItem('phone')
+        return hayTel ? JSON.parse(hayTel) : ""
+        });
+    const [email, setEmail] = useState(()=>{
+        const hayEmail = localStorage.getItem('email')
+        return hayEmail ? JSON.parse(hayEmail) : ""
+        });
     const [open, setOpen] = React.useState(false);
     const [mostrarCodigo, setMostrarCodigo] = useState(false)
-    const [codigo, setCodigo] = useState("")
+    const [codigo, setCodigo] = useState(()=>{
+        const hayCodigo = localStorage.getItem('codigo')
+        return hayCodigo ? JSON.parse(hayCodigo) : ""
+        });
 
     
 
@@ -38,7 +50,7 @@ export default function CheckOut() {
                 total: importeTotal  }
             const db = getFirestore();
             const collectionPedidosRef= collection(db, 'pedidos')
-            addDoc(collectionPedidosRef, pedido).then(({id})=> {console.log(id); setCodigo(id)});
+            addDoc(collectionPedidosRef, pedido).then(({id})=>  setCodigo(id));
             clear();
             clearForm();
             setMostrarCodigo(true)
@@ -57,25 +69,31 @@ export default function CheckOut() {
             let re = /\S+@\S+\.\S+/;
             if(  re.test(valor)  && (valor!=="")){
                 setEmail(valor)
+                localStorage.setItem('email', JSON.stringify(valor))    
             }
           }
           
-          function validarName(valor){ 
+          function validarName(valor){            
             if( (/^[A-z ]+$/.test(valor)) && (valor!=="") ){
             setName(valor)
-            }
+            localStorage.setItem('name', JSON.stringify(valor))    
+            } 
           }
 
           function validarPhone(valor){
             let numTel = /^\d{8,12}$/;
             if( valor.match(numTel)  && (valor!=="") ){
                 setPhone(valor)
+                localStorage.setItem('phone', JSON.stringify(valor))    
             }
           }
           function clearForm(){
             setName("");
+            localStorage.setItem('name', JSON.stringify(""))    
             setEmail("");
+            localStorage.setItem('email', JSON.stringify(""))    
             setPhone("")
+            localStorage.setItem('phone', JSON.stringify(""))    
           }
 
         const handleClose = (event, reason) => {
@@ -127,9 +145,16 @@ export default function CheckOut() {
             </Paper>
             <Paper  className='divFormulario'>
                 <Typography variant="h5" style={{color:'#e0f193d7', textAlign:'center'}}>Datos personales</Typography>
-                <TextField onChange={(e)=>validarName(e.target.value)} id="outlined-basic"variant="outlined" type={"text"} placeholder={"Nombre"} sx={{ width:8/10, margin:'0.7rem' }}/>
-                <TextField onChange={(e)=> validarPhone(e.target.value)} id="outlined-basic" variant="outlined" type={"tel"} placeholder={"Tel"} sx={{ width:8/10, margin:'0.7rem' }} />
-                <TextField  onChange={(e)=> validarEmail(e.target.value)} id="outlined-basic"  variant="outlined" type={"email"} placeholder={"Email"} sx={{ width:8/10, margin:'0.7rem' }}/>
+                <TextField 
+                onChange={(e)=>{
+                    
+                    validarName(e.target.value)
+                    
+                    }} variant="outlined" type={"text"} placeholder={"Nombre"} sx={{ width:8/10, margin:'0.7rem' }}/>
+                <TextField 
+                onChange={(e)=> {validarPhone(e.target.value)}}  variant="outlined" type={"tel"} placeholder={"Tel"} sx={{ width:8/10, margin:'0.7rem' }} />
+                <TextField  
+                onChange={(e)=> validarEmail(e.target.value)}   variant="outlined" type={"email"} placeholder={"Email"} sx={{ width:8/10, margin:'0.7rem' }}/>
                 <Snackbar sx={{backgroundColor:'primary.main'}}
                     open={open}
                     autoHideDuration={6000}

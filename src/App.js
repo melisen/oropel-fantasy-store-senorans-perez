@@ -7,6 +7,7 @@ import Cart from"./Components/Cart/Cart.jsx";
 import NavBar from "./Components/Navbar/NavBar";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
 import CheckOut from './Components/CheckOut/CheckOut.jsx';
+import Footer from './Components/Footer/Footer'
 
 
 
@@ -60,12 +61,13 @@ function App() {
     <div>
     <NavBar  />
       <Routes>
-        <Route path="/" element={<ItemListContainer greeting={"¡Bienvenidos a Oropel!"} />} />
-        <Route path="/category/:idCategory" element={<ItemListContainer greeting={"¡Bienvenidos a Oropel!"}/>} />
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/category/:idCategory" element={<ItemListContainer />} />
         <Route path="/item/:idItem" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<CheckOut />} />
       </Routes>
+      <Footer />
     </div>
     </ThemeProvider>
     </BrowserRouter>

@@ -1,8 +1,13 @@
 
+.itemDetailContainer{
+    display: flex;
+}
 .divItemCount{
+    min-height:300px;
     display:flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 .columnaImagen{
     display:flex;
@@ -18,4 +23,16 @@
 
 .NoSeVeBoton{
     display:none;
+    
+}
+
+
+
+
+/*MEDIA QUERY PARA SMARTPHONE*/
+@media (max-width: 480px) {
+    .itemDetailContainer{
+        display: flex;
+        flex-direction: column;
+    }
 }

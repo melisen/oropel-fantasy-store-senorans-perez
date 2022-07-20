@@ -4,7 +4,7 @@
 }
 .cardArticulo{
     width:290px;
-    margin: 15px 10px;
+    margin: 15px auto;
 }
 .contenedorImagen{
     display:flex;

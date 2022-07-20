@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import "./ItemDetail.css"
 import ItemCount from './ItemCount/ItemCount'
 
@@ -40,11 +44,16 @@ const ItemTexto = styled(Paper)(({ theme }) => ({
   color: theme.palette.secondary,
 }));
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+}); 
+
 export default function ItemDetail({itemProducto}) {
 
   const {addItem} = useContext(MyCartContext);
   const [cambiarBotones, setCambiarBotones] = useState(false);
-  
+  const [open, setOpen] = React.useState(false);
+  const [msgSnackbar, setMsgSnackbar] = useState("")
   
  
   
@@ -53,15 +62,21 @@ export default function ItemDetail({itemProducto}) {
   function onAdd(productos, cantidadStock){
         if((productos>0)&&(cantidadStock>0)){ 
           addItem(itemProducto, productos);
-          alert("¡Agregaste "+ JSON.stringify(productos)+ " de "+ itemProducto.title+ "a tu carrito!")
+          setOpen(true)
+          setMsgSnackbar("¡Agregaste  " +JSON.stringify(productos)+"  de  "+itemProducto.title+"  al carrito!")
+        }
+      }
+
+      const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
         }
       }
 
 
-
   return (
     <Box sx={{ flexGrow: 1 }} >
-      <Grid container spacing={2}>
+      <Grid container spacing={2} >
         <Grid item xs={6} >
 
         <div className="columnaImagen">
@@ -73,16 +88,17 @@ export default function ItemDetail({itemProducto}) {
         <Grid item xs={6} className='columnaInfo'>
 
           <Item>{itemProducto.title}</Item>
-
-          <ItemEstiloBotonera>$ {itemProducto.price}</ItemEstiloBotonera> 
           
-           <ItemEstiloBotonera className="divItemCount" >   {!cambiarBotones && <ItemCount   stock={itemProducto.stock} initial={1}  onAdd={onAdd}  setCambiarBotones={setCambiarBotones} />} </ItemEstiloBotonera>
-          
-          <ItemEstiloBotonera className={cambiarBotones ? 'seVeBoton' : 'NoSeVeBoton'}> 
-            <Button   sx={{ backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 
+           <ItemEstiloBotonera className="divItemCount" >   
+           <Typography variant='h4'> $ {itemProducto.price} </Typography>
+           {cambiarBotones && < AddShoppingCartIcon sx={{ fontSize: 60 }}/>} 
+           {!cambiarBotones && <ItemCount   stock={itemProducto.stock} initial={1}  onAdd={onAdd}  setCambiarBotones={setCambiarBotones} />} 
+           <div className={cambiarBotones ? 'seVeBoton' : 'NoSeVeBoton'}>
+           <Button   sx={{ backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 
               <Link to={'/cart'} style={{ color: 'inherit', textDecoration: 'none' }} >  Terminar mi compra </Link> 
             </Button> 
-          </ItemEstiloBotonera>
+           </div>
+           </ItemEstiloBotonera>
 
           <ItemTexto>Stock disponible: {itemProducto.stock}</ItemTexto>
  
@@ -90,6 +106,11 @@ export default function ItemDetail({itemProducto}) {
           
         </Grid>
       </Grid>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} >
+        <Alert onClose={handleClose}  sx={{ width: '100%', backgroundColor:'primary.main' }} >
+          {msgSnackbar}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }

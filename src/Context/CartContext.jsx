@@ -1,27 +1,33 @@
 
-import { createContext, useState } from 'react';
+import { createContext,  useState } from 'react';
 
 export const MyCartContext = createContext();
 
 export default function CartContext({children}) {
-    const [cart, setCart] = useState([]);
-     const [cantItems, setCantItems] =useState(0);
-     const [importeTotal, setImporteTotal] = useState(0)
+    const [cart, setCart] = useState(() => {
+        try{
+            const hayProductos = localStorage.getItem('cart')
+            return hayProductos ? JSON.parse(hayProductos) : []
+        }catch{
+            return []
+        }
+    });
+    const [cantItems, setCantItems] =useState(0);
+    const [importeTotal, setImporteTotal] = useState(0)
     const [condicionCartVacio, setCondicionCartVacio] = useState(true)
-   
 
     const isInCart = (id) => {
-        return cart.find((el) => el.id === id);
+        let carritoStorage =  JSON.parse(localStorage.getItem('cart'));
+        return carritoStorage.find((el) => el.id === id);
     }
     
     function addItem(item, quantity) {
         setCondicionCartVacio(false)
         if(isInCart(item.id)){
-            //producto existe
-            let nuevoCart = cart; //hago una copia de mi carrito actual
-            let indexProducto = nuevoCart.findIndex(element=> element.id === item.id); //busco index del producto por id
-            nuevoCart[indexProducto].quantity = Number(nuevoCart[indexProducto].quantity) + Number(quantity);  // sumo quantity al valor que vino en el onAdd.
-            setCart(nuevoCart); //seteo todo el array de nuevo pero modificado
+            let nuevoCart = JSON.parse(localStorage.getItem('cart')); 
+            let indexProducto = nuevoCart.findIndex(element=> element.id === item.id); 
+            nuevoCart[indexProducto].quantity = Number(nuevoCart[indexProducto].quantity) + Number(quantity); 
+            setCart(nuevoCart); 
             setCantItems(nuevoCart.reduce((acc, element)=> acc + element.quantity, 0));
             setImporteTotal( nuevoCart.reduce((acc, elemento) => acc + elemento.price*elemento.quantity, 0) );
 
@@ -39,7 +45,8 @@ export default function CartContext({children}) {
     function removeItem(itemId) {
         const nuevoCarrito = cart.filter((el) => el.id !== itemId );
         nuevoCarrito===[] && setCondicionCartVacio(true);
-        setCart(nuevoCarrito)   
+        setCart(nuevoCarrito)
+        localStorage.setItem('cart', JSON.stringify(nuevoCarrito))    
         setCantItems(nuevoCarrito.reduce((acc, element)=> acc + element.quantity, 0));
         setImporteTotal( nuevoCarrito.reduce((acc, elemento) => acc + elemento.price*elemento.quantity, 0) );
     }
@@ -48,6 +55,7 @@ export default function CartContext({children}) {
     function clear() {
         const nuevoCarrito=[];
         setCart(nuevoCarrito);
+        localStorage.setItem('cart', JSON.stringify(nuevoCarrito))    
         setCantItems(0);
         setCondicionCartVacio(true)
         setImporteTotal(0)
