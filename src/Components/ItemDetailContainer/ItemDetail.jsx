@@ -75,11 +75,9 @@ export default function ItemDetail({itemProducto}) {
 
   return (
     <Box sx={{ flexGrow: 1 }} >
-      <div container spacing={2} className='itemDetailContainer'>
-        <div item xs={6} >
-          <div className="columnaImagen">
+      <div container spacing={2} className='itemDetail'>
+        <div className="columnaImagen">
             <img src={itemProducto.pictureURL} alt={itemProducto.title} className="imagenDetail"/>
-          </div>
         </div>
         <div item xs={6} className='columnaInfo'>
           <Item>{itemProducto.title}</Item>

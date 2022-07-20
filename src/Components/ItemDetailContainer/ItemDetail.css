@@ -1,5 +1,5 @@
 
-.itemDetailContainer{
+.itemDetail{
     display: flex;
 }
 .divItemCount{
@@ -32,7 +32,7 @@
 
 /*MEDIA QUERY PARA SMARTPHONE*/
 @media (max-width: 480px) {
-    .itemDetailContainer{
+    .itemDetail{
         display: flex;
         flex-direction: column;
     }
