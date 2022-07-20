@@ -37,3 +37,12 @@ margin: 2rem auto;
     border-radius:20px;
     background-color: #698003d7;
 }
+
+
+/*MEDIA QUERY PARA SMARTPHONE*/
+@media (max-width: 480px) {
+    .divCheckout{
+        width:100%;
+        margin-bottom:100px;
+    }
+}

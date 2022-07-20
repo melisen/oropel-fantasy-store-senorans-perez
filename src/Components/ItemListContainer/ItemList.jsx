@@ -10,7 +10,7 @@ export default function ItemList({productosLista}) {
 
   return (
     
-    <div className="ItemList">
+    <div className="ItemList" style={{marginBottom:'100px'}}>
         {
           productosLista.map((item)=>
             <Item key={item.id} {...item} />
