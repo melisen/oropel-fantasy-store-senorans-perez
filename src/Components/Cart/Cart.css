@@ -27,6 +27,6 @@
 /*MEDIA QUERY PARA SMARTPHONE*/
 @media (max-width: 480px) {
     .divCart{
-        width:100%;
+        width:470px;
     }
 }
