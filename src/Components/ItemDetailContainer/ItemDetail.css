@@ -19,12 +19,11 @@
 }
 .imagenDetail{
     height: 26rem;
-    margin:1.5rem;
+    margin:1.5rem auto;
 }
 
 .NoSeVeBoton{
     display:none;
-    
 }
 
 
@@ -35,5 +34,6 @@
     .itemDetail{
         display: flex;
         flex-direction: column;
+        margin-bottom:100px;
     }
 }
