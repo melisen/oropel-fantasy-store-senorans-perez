@@ -65,7 +65,7 @@ export default function Cart() {
 
         <div className={condicionCartVacio ? 'SeVe' : 'NoSeVe'}>
           <div  style={{backgroundColor:'#283322', borderRadius:'10px', padding:'10px', display:'flex', flexDirection:'column', alignItems:'center'}}>
-            <Typography variant="h5" style={{color:'#e0f193d7', fontFamily:'Joan'}}> Tu carrito está vacío, te invitamos a conocer nuestros productos. </Typography>
+            <Typography variant="h5" style={{color:'#e0f193d7', fontFamily:'Joan', textAlign:'center'}}> Tu carrito está vacío, te invitamos a conocer nuestros productos. </Typography>
             <Button variant="contained"> <Link to={"/"}  style={{ color: 'inherit', textDecoration: 'none' }}> Comenzar a comprar</Link> </Button>
           </div>
         </div>

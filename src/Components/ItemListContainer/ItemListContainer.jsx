@@ -22,8 +22,7 @@ export default function ItemListContainer() {
         
         getDocs(collectionFiltrada)
         .then((res)=> {
-            let arrNormalizado= [];
-            arrNormalizado = res.docs.map((element)=>({...element.data(), id: element.id}));
+            let arrNormalizado = res.docs.map((element)=>({...element.data(), id: element.id}));
             setProductosLista(arrNormalizado);
         })
         .catch((error)=>{
