@@ -74,7 +74,7 @@ export default function ItemDetail({itemProducto}) {
 
 
   return (
-    <Box sx={{marginBottom:'100px', flexGrow: 1 }} >
+    <Box sx={{marginBottom:'50px', flexGrow: 1 }} >
       <div className='itemDetail'>
         <div className="columnaImagen">
             <img src={itemProducto.pictureURL} alt={itemProducto.title} className="imagenDetail"/>
@@ -96,7 +96,7 @@ export default function ItemDetail({itemProducto}) {
         </div>
       </div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} >
-        <Alert onClose={handleClose}  sx={{ width: '100%', backgroundColor:'primary.main' }} >
+        <Alert onClose={handleClose}  sx={{ backgroundColor:'primary.main' }} >
           {msgSnackbar}
         </Alert>
       </Snackbar>
