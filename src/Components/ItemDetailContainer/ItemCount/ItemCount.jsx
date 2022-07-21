@@ -15,7 +15,7 @@ import { useState} from 'react';
 
 
 
-export default function ItemCount( {stock, initial, onAdd, setCambiarBotones}) {
+export default function ItemCount( { stock, initial, onAdd, setCambiarBotones}) {
 
   
   const [cantItems, setCantItems] = useState(initial);

@@ -84,7 +84,7 @@ export default function ItemDetail({itemProducto}) {
           <ItemEstiloBotonera className="divItemCount" >   
               <Typography variant='h4'> $ {itemProducto.price} </Typography>
               {cambiarBotones && < AddShoppingCartIcon sx={{ fontSize: 60 }}/>} 
-              {!cambiarBotones && <ItemCount   stock={itemProducto.stock} initial={1}  onAdd={onAdd}  setCambiarBotones={setCambiarBotones} />} 
+              {!cambiarBotones && <ItemCount   stock={itemProducto.stock}  initial={1}  onAdd={onAdd}  setCambiarBotones={setCambiarBotones} />} 
               <div className={cambiarBotones ? 'seVeBoton' : 'NoSeVeBoton'}>
                 <Button   sx={{ backgroundColor: 'primary.main', color:'secondary.main',  '&:hover':{backgroundColor: '#283322'}}}> 
                     <Link to={'/cart'} style={{ color: 'inherit', textDecoration: 'none' }} >  Terminar mi compra </Link> 

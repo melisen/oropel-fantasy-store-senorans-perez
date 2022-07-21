@@ -17,7 +17,7 @@ export default function CartContext({children}) {
     const [condicionCartVacio, setCondicionCartVacio] = useState(true)
 
     const isInCart = (id) => {
-        let carritoStorage =  JSON.parse(localStorage.getItem('cart'));
+        let carritoStorage =  cart;
         return carritoStorage.find((el) => el.id === id);
     }
     
