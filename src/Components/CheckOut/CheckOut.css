@@ -12,7 +12,7 @@ margin: 100px auto;
     display:inline-block;
 }
 .divFormulario{
-    width:450px;
+    width:50%;
     display:flex;
     flex-direction:column;
     align-items: center;
@@ -43,6 +43,9 @@ margin: 100px auto;
 @media (max-width: 480px) {
     .divCheckout{
         width:100%;
-        margin-bottom:100px;
+        margin-bottom:30px;
+    }
+    .divFormulario{
+        width:100%;
     }
 }

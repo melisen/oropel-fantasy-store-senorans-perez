@@ -74,7 +74,7 @@ export default function ItemDetail({itemProducto}) {
 
 
   return (
-    <Box sx={{marginBottom:'50px', flexGrow: 1 }} >
+    <Box sx={{marginBottom:'30px', flexGrow: 1 }} >
       <div className='itemDetail'>
         <div className="columnaImagen">
             <img src={itemProducto.pictureURL} alt={itemProducto.title} className="imagenDetail"/>
