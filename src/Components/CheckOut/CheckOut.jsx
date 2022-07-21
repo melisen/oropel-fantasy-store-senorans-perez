@@ -127,20 +127,20 @@ export default function CheckOut() {
         <div className='Columnas'>
             <Paper className='divFormulario'>
                 <Typography variant="h5" style={{color:'#e0f193d7', textAlign:'center'}}>Productos</Typography>
-    <TableContainer component={Paper}>
-        <Table  aria-label="simple table">
-            <TableBody>
-                {cart.map((row) => (
-                <TableRow  key={row.title} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}  >
-                    <TableCell align="center">{row.quantity}</TableCell>
-                    <TableCell align="center" sx={{ width:7/10 }}>{row.title}</TableCell>                    
-                    <TableCell align="center">${row.price}</TableCell>
- 
-                </TableRow>
-                ))}
-            </TableBody>
-        </Table>
-    </TableContainer>
+            <TableContainer component={Paper}>
+                <Table  aria-label="simple table">
+                    <TableBody>
+                        {cart.map((row) => (
+                        <TableRow  key={row.title} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}  >
+                            <TableCell align="center">{row.quantity}</TableCell>
+                            <TableCell align="center" sx={{ width:7/10 }}>{row.title}</TableCell>                    
+                            <TableCell align="center">${row.price}</TableCell>
+        
+                        </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
 
             </Paper>
             <Paper  className='divFormulario'>
@@ -168,12 +168,12 @@ export default function CheckOut() {
             </Paper>
         </div>
         <div className={mostrarCodigo? 'seVe': 'noSeVe'}>
-        <Paper className='divFormulario'>
-            <Typography style={{fontSize:'1.2rem'}}> <AddTaskIcon/> El código de su compra es:</Typography>
-            <div className='codigoStyle'> <span>{codigo} </span> </div>
-            <Typography> Chequee su correo para ver el seguimiento de su pedido</Typography>
-        </Paper >
-    </div>
+            <Paper className='divFormulario'>
+                <Typography style={{fontSize:'1.2rem'}}> <AddTaskIcon/> El código de su compra es:</Typography>
+                <div className='codigoStyle'> {codigo} </div>
+                <Typography style={{textAlign:'center'}}> Chequee su correo para ver el seguimiento de su pedido</Typography>
+            </Paper >
+        </div>
     </div>
 
     </>
