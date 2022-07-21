@@ -170,7 +170,7 @@ export default function CheckOut() {
         <div className={mostrarCodigo? 'seVe': 'noSeVe'}>
             <Paper className='divCodigo'>
                 <Typography style={{fontSize:'1.2rem'}}> <AddTaskIcon/> El código de su compra es:</Typography>
-                <div className='codigoStyle'> {codigo} </div>
+                <div className='codigoStyle'> <span>{codigo} </span>  </div>
                 <Typography style={{textAlign:'center'}}> Chequee su correo para ver el seguimiento de su pedido</Typography>
             </Paper >
         </div>
