@@ -10,6 +10,7 @@
     margin:50px auto;
 }
 .divFinalizarCompra{
+    width:85%;
     height:8rem;
     display: flex;
     flex-direction:column;
