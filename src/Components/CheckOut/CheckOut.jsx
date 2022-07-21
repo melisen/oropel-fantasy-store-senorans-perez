@@ -168,7 +168,7 @@ export default function CheckOut() {
             </Paper>
         </div>
         <div className={mostrarCodigo? 'seVe': 'noSeVe'}>
-            <Paper className='divFormulario'>
+            <Paper className='divCodigo'>
                 <Typography style={{fontSize:'1.2rem'}}> <AddTaskIcon/> El código de su compra es:</Typography>
                 <div className='codigoStyle'> {codigo} </div>
                 <Typography style={{textAlign:'center'}}> Chequee su correo para ver el seguimiento de su pedido</Typography>
