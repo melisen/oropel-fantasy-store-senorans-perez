@@ -1,4 +1,4 @@
-//@ts-check
+
 import React, { useEffect, useState } from 'react'
 import CircularProgress from '@mui/material/CircularProgress';
 import ItemDetail from "./ItemDetail.jsx"
