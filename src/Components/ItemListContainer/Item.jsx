@@ -19,24 +19,21 @@ export default function Item( {id, title, price, description, pictureURL}) {
         <CardContent>
           <div className="contenedorImagen">
             <img src={pictureURL} alt={title} className="cardImg"/>
-            </div>
+          </div>
           <Typography variant="h5" component="div" className="titleArticulo" color="#ece6c3" >
           {title}
           </Typography>
-          <div className="descriptionArticulo">
-            <Typography variant="text" component="div">
-            {description}
+          <div style={{marginTop:'2rem'}}>
+            <Typography variant="h5" style={{fontSize:"1.5rem"}} color="#ece6c3" >
+              ${price}
             </Typography>
           </div>
-          <Typography variant="h5" sx={{ mb: 1.5 }} color="#ece6c3" >
-            ${price}
-          </Typography>
-          
-        </CardContent>
-        <CardActions>
           <Button size="small" color="secondary">
           <Link to={`/item/${id}`} style={{ color: 'inherit', textDecoration: 'none' }} ><p color='secondary' > Ver Detalle</p></Link>
           </Button>
+        </CardContent>
+        <CardActions>
+         
         </CardActions>
       </Card>
     

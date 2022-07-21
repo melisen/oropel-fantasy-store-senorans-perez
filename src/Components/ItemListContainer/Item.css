@@ -5,7 +5,8 @@
 .cardArticulo{
     width:290px;
     margin: 15px auto;
-    transition: width 2s background-color 2s;
+    transition: 200ms ;
+    
 }
 .cardArticulo:hover {
     width:295px;
@@ -19,19 +20,13 @@
     justify-content: center;
 }
 .cardImg{
-    max-height: 200px;
+    max-height: 280px;
 }
 .titleArticulo{
-    height:4rem;
+    height:2.8rem;
     text-align:center;
+
 }
-.descriptionArticulo{
-    
-    color: #ece6c3;
-    ;
-    background-color: #283322;
-    padding: 8px;
-    border-radius: 4px;
-}
+
 
 
