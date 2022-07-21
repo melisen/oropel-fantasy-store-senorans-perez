@@ -47,5 +47,10 @@ margin: 30px auto;
     }
     .divFormulario{
         width:80%;
+        margin: 1rem 0;
+    }
+    .codigoStyle{
+        width:80%;
+        margin: 1rem 0;
     }
 }
