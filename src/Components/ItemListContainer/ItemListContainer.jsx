@@ -1,4 +1,4 @@
-//@ts-check
+
 import CircularProgress from '@mui/material/CircularProgress';
 import React from 'react'
 import ItemList from './ItemList'
