@@ -5,7 +5,14 @@
 .cardArticulo{
     width:290px;
     margin: 15px auto;
+    transition: width 2s background-color 2s;
 }
+.cardArticulo:hover {
+    width:295px;
+    background-color:#212b1c;
+
+ }
+ 
 .contenedorImagen{
     display:flex;
     flex-direction: row;
