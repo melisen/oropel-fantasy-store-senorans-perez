@@ -14,6 +14,7 @@ se utiliza react-router-dom con BrowserRouter y Routes para poder especificar la
 
 ACCESO AL PROYECTO:
 Para poder ver este proyecto:
+https://oropel-senorans.web.app/
 https://github.com/melisen/oropel-fantasy-store-senorans-perez
 Clonar el repositorio. 
 Descargar el archivo, descomprimirlo, abrirlo en Visual Studio Code y correrlo con "npm start" en la terminal de VSC.
